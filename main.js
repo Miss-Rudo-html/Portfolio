@@ -58,6 +58,7 @@ async function runBoot() {
 
 runBoot();
 
+// hi
 // ── Alias dropdown ──
 const trigger = document.getElementById('name-trigger');
 
