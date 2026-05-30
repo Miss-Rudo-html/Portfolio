@@ -625,3 +625,50 @@ html, body {
 
 .blink { animation: blink 1.4s step-end infinite; }
 .hidden { display: none; }
+
+/* ── Profile Switcher ── */
+#profile-switcher {
+  position: fixed;
+  right: calc((100vw - min(860px, 96vw)) / 2 - 74px);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  z-index: 100;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+#profile-switcher:hover { opacity: 1; }
+#profile-switcher img {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid #00ff4155;
+  object-fit: cover;
+}
+#profile-switcher .ps-label {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  color: var(--green-dim);
+  text-align: center;
+  line-height: 1.3;
+}
+#profile-switcher .ps-hint {
+  font-size: 0.55rem;
+  color: #00ff4144;
+}
+
+/* ── Profile Keypad (7171) ── */
+#profile-keypad-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: #000000cc;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+}
+#profile-keypad-modal.open { display: flex; }

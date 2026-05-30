@@ -111,11 +111,7 @@ function render() {
 function handleCommand(cmd) {
   feedback.textContent = '';
 
-  if (cmd === 'Rudo_') {
-    feedback.textContent = '// switching profile...';
-    feedback.style.color = '#00ff41';
-    setTimeout(() => { window.location.href = 'secret.html'; }, 600);
-  } else if (cmd === '') {
+  if (cmd === '') {
     // do nothing
   } else {
     feedback.textContent = `bash: ${cmd}: command not found`;
