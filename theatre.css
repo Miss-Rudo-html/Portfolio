@@ -334,6 +334,48 @@ body {
   line-height: 1.5;
 }
 
+/* ── Shadow photo grid ── */
+.shadow-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+@media (max-width: 600px) { .shadow-grid { grid-template-columns: 1fr 1fr; } }
+
+.shadow-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.shadow-card img {
+  width: 100%;
+  aspect-ratio: 3/4;
+  object-fit: cover;
+  object-position: center top;
+  border-radius: 3px;
+  border: 1px solid #00ff4122;
+  transition: border-color 0.2s, transform 0.2s;
+  cursor: pointer;
+}
+.shadow-card img:hover { border-color: var(--green-dim); transform: scale(1.02); }
+
+.shadow-label {
+  font-size: 0.68rem;
+  color: var(--green-dim);
+  font-family: 'Share Tech Mono', monospace;
+  text-align: center;
+}
+
+.shadow-note {
+  color: #ffbd2e88;
+  font-size: 0.62rem;
+  display: block;
+  margin-top: 2px;
+}
+
 /* ── Image grid ── */
 .img-grid {
   display: grid;
