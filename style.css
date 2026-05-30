@@ -471,6 +471,16 @@ html, body {
   text-shadow: 0 0 6px #ffbd2e;
 }
 
+.friend.blue {
+  color: #60cfffaa;
+  border-color: #60cfff33;
+}
+.friend.blue:hover {
+  color: #60cfff;
+  border-color: #60cfff;
+  text-shadow: 0 0 6px #60cfff;
+}
+
 /* Prompt line at bottom */
 .prompt-line {
   font-size: 0.84rem;
