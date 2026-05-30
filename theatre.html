@@ -186,15 +186,103 @@
                 </div>
               </div>
             </div>
-            <div class="assign-item"><span class="assign-type assignment">assignment</span><span class="assign-name">Final Light Cue Sheet</span></div>
-            <div class="assign-item"><span class="assign-type url">external url</span><span class="assign-name">Updated Lighting and Sound Projects</span></div>
+            <div class="assign-item expandable" data-target="cuesheet-details">
+              <span class="assign-type assignment">assignment</span>
+              <span class="assign-name">Final Light Cue Sheet</span>
+              <span class="expand-arrow">&#x25BE;</span>
+            </div>
+            <div class="assign-details" id="cuesheet-details">
+              <p class="detail-reflection">
+                "The Final Light Cue Sheet is where everything from the unit came together. Writing cues meant thinking about not just what the light looks like, but when it changes, how fast, and why — it forced me to treat lighting as storytelling with a timeline. Managing the board during a cue sequence taught me that even a small timing mistake can completely shift the emotional beat of a scene. Each cue had to be intentional. My cue sheet ran five cues: a blackout open, a warm orange-red wash for dramatic shadow, a green peaceful look for contrast, a blue somber top-light atmosphere, and a final blackout to close — each one building on the last."
+              </p>
+              <div class="shadow-grid" style="margin-top:1rem; grid-template-columns: 1fr;">
+                <div class="shadow-card">
+                  <img src="images/lighting/IMG_20260218_113307.jpg" alt="Final Light Cue Sheet" loading="lazy" />
+                  <span class="shadow-label">Final Light Cue Sheet <span class="shadow-note">(sorry for the bad image quality)</span></span>
+                </div>
+              </div>
+              <div class="tool-grid" style="margin-top:0.8rem; display:flex; flex-direction:column; gap:0.4rem;">
+                <div class="tool-card"><span class="tool-name">Cue 1 — 0:00</span><span class="tool-desc">Blackout. Stage is dark, show begins.</span></div>
+                <div class="tool-card"><span class="tool-name">Cue 2 — 0:11</span><span class="tool-desc">Orange-red wash with dramatic shadow play.</span></div>
+                <div class="tool-card"><span class="tool-name">Cue 3 — 0:33</span><span class="tool-desc">Green, peaceful atmosphere — soft and balanced.</span></div>
+                <div class="tool-card"><span class="tool-name">Cue 4 — 1:05</span><span class="tool-desc">Blue somber top light — cool, isolated, atmospheric.</span></div>
+                <div class="tool-card"><span class="tool-name">Cue 5 — 1:21</span><span class="tool-desc">Blackout. End of sequence.</span></div>
+              </div>
+            </div>
             <div class="assign-item keypad-locked" id="prompt-book-trigger">
               <span class="assign-type assignment">assignment</span>
               <span class="assign-name">Prompt Book</span>
               <span class="lock-icon">&#x1F512;</span>
             </div>
             <div class="assign-details" id="prompt-book-details">
-              <p class="detail-reflection">"Prompt Book content unlocked."</p>
+              <p class="detail-reflection">
+                "The Prompt Book is the operator's bible during a live show — every cue, every line, every beat mapped out so nothing is left to chance. Running light cues live means listening to the show, tracking the script, and hitting each cue at exactly the right moment. The recording below captures me calling cues in real time, and the timeline marks what I called and what the stage did at each moment."
+              </p>
+
+              <!-- YouTube embed -->
+              <p class="tool-name" style="margin:1rem 0 0.4rem;">Show I am Cueing</p>
+              <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:4px; border:1px solid #00ff4118; margin-bottom:1.2rem;">
+                <iframe
+                  src="https://www.youtube.com/embed/kPGSNZBTOC4"
+                  style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+                  allowfullscreen loading="lazy">
+                </iframe>
+              </div>
+
+              <!-- Audio player -->
+              <p class="tool-name" style="margin:0 0 0.4rem;">Cue Call Recording</p>
+              <audio controls style="width:100%; margin-bottom:1.2rem; accent-color:var(--green);">
+                <source src="images/lighting/New Recording 103.mp3" type="audio/mpeg" />
+              </audio>
+
+              <!-- Cue timeline -->
+              <p class="tool-name" style="margin:0 0 0.6rem;">Live Cue Timeline</p>
+              <div style="display:flex; flex-direction:column; gap:0.5rem;">
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">0:16</span>
+                  <div><span class="tool-name">Cue 1 — Blackout</span><span class="tool-desc">Stage goes to full dark.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:05</span>
+                  <div><span class="tool-name">Cue 2 — Blackout then Spotlights</span><span class="tool-desc">Stage blacks out then spotlights come up on performers.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:09</span>
+                  <div><span class="tool-name">Cue 3 — Blackout</span><span class="tool-desc">Full blackout.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:15</span>
+                  <div><span class="tool-name">Cue 4 — Spotlight</span><span class="tool-desc">Spotlight comes up.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:17</span>
+                  <div><span class="tool-name">Cue 5 — Spotlight</span><span class="tool-desc">Spotlight.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:21</span>
+                  <div><span class="tool-name">Cue 6 — Spotlight</span><span class="tool-desc">Spotlight.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:23</span>
+                  <div><span class="tool-name">Cue 7 — Spotlight</span><span class="tool-desc">Spotlight.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:27</span>
+                  <div><span class="tool-name">Cue 8 — Spotlight</span><span class="tool-desc">Spotlight.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:30</span>
+                  <div><span class="tool-name">Cue 9 — Spotlight</span><span class="tool-desc">Spotlight.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:50</span>
+                  <div><span class="tool-name">Cue 10 — Blackout</span><span class="tool-desc">Full blackout.</span></div>
+                </div>
+                <div class="tool-card" style="flex-direction:row; align-items:flex-start; gap:0.8rem;">
+                  <span class="tool-name" style="min-width:3rem;">1:56</span>
+                  <div><span class="tool-name">Cue 11 — Group Big Spotlight</span><span class="tool-desc">Large spotlight opens up covering the full group on stage.</span></div>
+                </div>
+              </div>
             </div>
           </div>
 
