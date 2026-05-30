@@ -1,11 +1,10 @@
-// "Caym" ASCII art — figlet standard font
+// "Rudo_" ASCII art
 const ASCII_NAME = [
-  '  ____                          ',
-  ' / ___|  __ _ _   _ _ __ ___   ',
-  '| |     / _` | | | | \'_ ` _ \\  ',
-  '| |___ | (_| | |_| | | | | | | ',
-  ' \\____|\\__,_|\\__, |_| |_| |_| ',
-  '              |___/             ',
+  ' ____            _       ',
+  '|  _ \\ _   _  __| | ___  ',
+  '| |_) | | | |/ _` |/ _ \\ ',
+  '|  _ <| |_| | (_| | (_) |',
+  '|_| \\_\\\\__,_|\\__,_|\\___/ ',
 ].join('\n');
 
 const BOOT_LINES = [
@@ -16,7 +15,7 @@ const BOOT_LINES = [
   'Decrypting identity .................. OK',
   '',
   '$ whoami',
-  'Caym  //  he/him  //  dev + tech theatre',
+  'Rudo_  //  she/her  //  tech theatre',
   '',
 ];
 
