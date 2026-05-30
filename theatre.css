@@ -414,6 +414,15 @@ body {
 }
 .tool-card:hover { border-color: #00ff4133; }
 
+.tool-card img {
+  width: 100%;
+  border-radius: 2px;
+  object-fit: cover;
+  max-height: 140px;
+  opacity: 0.88;
+  margin-bottom: 0.2rem;
+}
+
 .tool-name {
   font-size: 0.78rem;
   color: var(--green);
