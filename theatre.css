@@ -250,6 +250,90 @@ body {
   font-family: 'Share Tech Mono', monospace;
 }
 
+/* ── Expandable assignment details ── */
+.assign-item.expandable {
+  cursor: pointer;
+  user-select: none;
+}
+.assign-item.expandable:hover { border-color: var(--green); background: #071507; }
+
+.expand-arrow {
+  margin-left: auto;
+  color: #00ff4155;
+  font-size: 0.8rem;
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.assign-item.expandable.open .expand-arrow { transform: rotate(180deg); }
+
+.assign-details {
+  display: none;
+  background: #030a03;
+  border: 1px solid #00ff4111;
+  border-top: none;
+  border-radius: 0 0 3px 3px;
+  padding: 1rem 1rem 1.2rem;
+  margin-top: -1px;
+}
+.assign-details.open { display: block; }
+
+.detail-link {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #60cfff;
+  font-family: 'Share Tech Mono', monospace;
+  text-decoration: none;
+  border: 1px solid #60cfff33;
+  border-radius: 3px;
+  padding: 4px 10px;
+  margin-bottom: 0.8rem;
+  transition: border-color 0.15s, color 0.15s;
+}
+.detail-link:hover { border-color: #60cfff; color: #aee6ff; }
+
+.detail-reflection {
+  font-size: 0.76rem;
+  color: #00ff4188;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.6;
+  border-left: 2px solid #00ff4133;
+  padding-left: 0.7rem;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.6rem;
+}
+
+.tool-card {
+  border: 1px solid #00ff4118;
+  border-radius: 3px;
+  background: #050f05;
+  padding: 0.6rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  transition: border-color 0.15s;
+}
+.tool-card:hover { border-color: #00ff4133; }
+
+.tool-name {
+  font-size: 0.78rem;
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  text-shadow: 0 0 4px var(--green);
+}
+
+.tool-desc {
+  font-size: 0.68rem;
+  color: #00c83288;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.5;
+}
+
 /* ── Image grid ── */
 .img-grid {
   display: grid;

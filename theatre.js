@@ -72,6 +72,17 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape')     closeLightbox();
 });
 
+// ── Expandable assignment panels ──
+document.querySelectorAll('.assign-item.expandable').forEach(item => {
+  item.addEventListener('click', () => {
+    const target = document.getElementById(item.dataset.target);
+    if (!target) return;
+    const isOpen = target.classList.contains('open');
+    target.classList.toggle('open', !isOpen);
+    item.classList.toggle('open', !isOpen);
+  });
+});
+
 // Wire up all image grids
 document.querySelectorAll('.img-grid').forEach(grid => {
   const imgs = [...grid.querySelectorAll('img')].map(i => i.src);
