@@ -376,6 +376,52 @@ body {
   margin-top: 2px;
 }
 
+/* ── Practice site color tints ── */
+.shadow-card.tint-aqua-green {
+  background: linear-gradient(135deg, #00ffbb0a, #00ff440a);
+  border-radius: 4px;
+}
+.shadow-card.tint-aqua-green img {
+  border-color: #00ffbb44;
+  box-shadow: 0 0 10px #00ffbb22;
+}
+
+.shadow-card.tint-orange-pink-purple {
+  background: linear-gradient(135deg, #ff95000a, #ff6eb40a, #b06aff0a);
+  border-radius: 4px;
+}
+.shadow-card.tint-orange-pink-purple img {
+  border-color: #cc44ff44;
+  box-shadow: 0 0 10px #ff6eb422, 0 0 6px #ff950022;
+}
+
+.shadow-card.tint-aqua-darkblue {
+  background: linear-gradient(135deg, #00bfff0a, #0040ff0a);
+  border-radius: 4px;
+}
+.shadow-card.tint-aqua-darkblue img {
+  border-color: #00bfff44;
+  box-shadow: 0 0 10px #00bfff22;
+}
+
+.shadow-card.tint-yellow-blue {
+  background: linear-gradient(135deg, #ffff000a, #0040ff0a);
+  border-radius: 4px;
+}
+.shadow-card.tint-yellow-blue img {
+  border-color: #ffff0044;
+  box-shadow: 0 0 10px #ffff0022, 0 0 6px #0040ff22;
+}
+
+.shadow-card.tint-red-blue {
+  background: linear-gradient(135deg, #ff00000a, #0040ff0a);
+  border-radius: 4px;
+}
+.shadow-card.tint-red-blue img {
+  border-color: #ff444444;
+  box-shadow: 0 0 10px #ff000022, 0 0 6px #0040ff22;
+}
+
 /* ── Image grid ── */
 .img-grid {
   display: grid;
