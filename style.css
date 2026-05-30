@@ -475,10 +475,68 @@ html, body {
   color: #60cfffaa;
   border-color: #60cfff33;
 }
-.friend.blue:hover {
-  color: #60cfff;
-  border-color: #60cfff;
-  text-shadow: 0 0 6px #60cfff;
+.friend.blue:hover { color: #60cfff; border-color: #60cfff; text-shadow: 0 0 6px #60cfff; }
+
+.friend.dark-green {
+  color: #00a832aa;
+  border-color: #00a83233;
+}
+.friend.dark-green:hover { color: #00a832; border-color: #00a832; text-shadow: 0 0 6px #00a832; }
+
+.friend.pink {
+  color: #ff6eb4aa;
+  border-color: #ff6eb433;
+}
+.friend.pink:hover { color: #ff6eb4; border-color: #ff6eb4; text-shadow: 0 0 6px #ff6eb4; }
+
+.friend.light-blue {
+  color: #aee6ffaa;
+  border-color: #aee6ff33;
+}
+.friend.light-blue:hover { color: #aee6ff; border-color: #aee6ff; text-shadow: 0 0 6px #aee6ff; }
+
+.friend.orange {
+  color: #ff9500aa;
+  border-color: #ff950033;
+}
+.friend.orange:hover { color: #ff9500; border-color: #ff9500; text-shadow: 0 0 6px #ff9500; }
+
+.friend.purple {
+  color: #b06affaa;
+  border-color: #b06aff33;
+}
+.friend.purple:hover { color: #b06aff; border-color: #b06aff; text-shadow: 0 0 6px #b06aff; }
+
+.friend.white {
+  color: #e8e8e8aa;
+  border-color: #e8e8e833;
+}
+.friend.white:hover { color: #e8e8e8; border-color: #e8e8e8; text-shadow: 0 0 6px #e8e8e8; }
+
+/* Color key legend */
+#friends-key {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.7rem;
+  border-bottom: 1px solid #00ff4111;
+}
+
+.key-item {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.65rem;
+  font-family: 'Share Tech Mono', monospace;
+  color: #00ff4166;
+}
+
+.key-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 
 /* Prompt line at bottom */
