@@ -461,6 +461,16 @@ html, body {
   text-shadow: 0 0 6px #ff5f57;
 }
 
+.friend.gold {
+  color: #ffbd2eaa;
+  border-color: #ffbd2e33;
+}
+.friend.gold:hover {
+  color: #ffbd2e;
+  border-color: #ffbd2e;
+  text-shadow: 0 0 6px #ffbd2e;
+}
+
 /* Prompt line at bottom */
 .prompt-line {
   font-size: 0.84rem;
