@@ -250,6 +250,100 @@ body {
   font-family: 'Share Tech Mono', monospace;
 }
 
+/* ── Keypad modal ── */
+#keypad-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  background: rgba(0,0,0,0.88);
+  align-items: center;
+  justify-content: center;
+}
+#keypad-modal.open { display: flex; }
+
+#keypad-box {
+  background: #080f08;
+  border: 1px solid var(--green-dim);
+  border-radius: 6px;
+  box-shadow: 0 0 40px #00ff4133;
+  padding: 1.4rem;
+  width: 220px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+#keypad-header {
+  font-size: 0.68rem;
+  color: #00ff4166;
+  letter-spacing: 0.12em;
+  text-align: center;
+  margin-bottom: 0.9rem;
+}
+
+#keypad-display {
+  background: #030a03;
+  border: 1px solid #00ff4133;
+  border-radius: 3px;
+  padding: 0.5rem;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  color: var(--green);
+  letter-spacing: 0.3em;
+  text-shadow: 0 0 6px var(--green);
+}
+
+#keypad-status {
+  font-size: 0.65rem;
+  text-align: center;
+  min-height: 1.2em;
+  margin-bottom: 0.7rem;
+  letter-spacing: 0.08em;
+}
+#keypad-status.error   { color: #ff5f57; }
+#keypad-status.success { color: var(--green); }
+
+#keypad-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.kp-btn {
+  background: #050f05;
+  border: 1px solid #00ff4122;
+  border-radius: 3px;
+  color: var(--green-dim);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.88rem;
+  padding: 0.55rem 0;
+  cursor: pointer;
+  transition: background 0.1s, border-color 0.1s, color 0.1s;
+}
+.kp-btn:hover  { background: #071507; border-color: var(--green-dim); color: var(--green); }
+.kp-btn:active { background: #0a1f0a; }
+
+.kp-clear { color: #ff5f5788; border-color: #ff5f5722; }
+.kp-clear:hover { border-color: #ff5f57; color: #ff5f57; background: #1a0505; }
+
+.kp-enter { color: var(--green); border-color: #00ff4133; }
+.kp-enter:hover { border-color: var(--green); background: #071f07; }
+
+@keyframes shake {
+  0%,100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}
+.shake { animation: shake 0.4s ease; }
+
+/* Lock icon on Prompt Book */
+.assign-item.keypad-locked { cursor: pointer; }
+.assign-item.keypad-locked:hover { border-color: var(--green); background: #071507; }
+.lock-icon { margin-left: auto; font-size: 0.85rem; }
+.assign-item.keypad-locked.unlocked .lock-icon::before { content: '🔓'; }
+
 /* ── Expandable assignment details ── */
 .assign-item.expandable {
   cursor: pointer;

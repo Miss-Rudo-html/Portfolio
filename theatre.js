@@ -72,6 +72,78 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape')     closeLightbox();
 });
 
+// ── Keypad ──
+const keypadModal   = document.getElementById('keypad-modal');
+const keypadDots    = document.getElementById('keypad-dots');
+const keypadStatus  = document.getElementById('keypad-status');
+const CODE          = '9898';
+let   kpInput       = '';
+let   kpUnlocked    = false;
+
+function updateDots() {
+  const filled = '●'.repeat(kpInput.length);
+  const empty  = '○'.repeat(Math.max(0, 4 - kpInput.length));
+  keypadDots.textContent = filled + empty;
+}
+
+document.querySelectorAll('.kp-btn[data-val]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (kpInput.length >= 4) return;
+    kpInput += btn.dataset.val;
+    updateDots();
+    keypadStatus.textContent = '';
+    keypadStatus.className = '';
+  });
+});
+
+document.getElementById('kp-clear').addEventListener('click', () => {
+  kpInput = '';
+  updateDots();
+  keypadStatus.textContent = '';
+  keypadStatus.className = '';
+});
+
+document.getElementById('kp-enter').addEventListener('click', () => {
+  if (kpInput === CODE) {
+    keypadStatus.textContent = '// ACCESS GRANTED';
+    keypadStatus.className = 'success';
+    setTimeout(() => {
+      keypadModal.classList.remove('open');
+      kpUnlocked = true;
+      const trigger = document.getElementById('prompt-book-trigger');
+      const details = document.getElementById('prompt-book-details');
+      trigger.classList.add('unlocked');
+      details.classList.add('open');
+      kpInput = '';
+      updateDots();
+      keypadStatus.textContent = '';
+    }, 600);
+  } else {
+    keypadStatus.textContent = '// ACCESS DENIED';
+    keypadStatus.className = 'error';
+    document.getElementById('keypad-box').classList.add('shake');
+    setTimeout(() => document.getElementById('keypad-box').classList.remove('shake'), 400);
+    kpInput = '';
+    updateDots();
+  }
+});
+
+document.getElementById('prompt-book-trigger').addEventListener('click', () => {
+  if (kpUnlocked) {
+    const details = document.getElementById('prompt-book-details');
+    details.classList.toggle('open');
+  } else {
+    kpInput = '';
+    updateDots();
+    keypadStatus.textContent = '';
+    keypadModal.classList.add('open');
+  }
+});
+
+keypadModal.addEventListener('click', e => {
+  if (e.target === keypadModal) keypadModal.classList.remove('open');
+});
+
 // ── Expandable assignment panels ──
 document.querySelectorAll('.assign-item.expandable').forEach(item => {
   item.addEventListener('click', () => {

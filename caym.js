@@ -76,7 +76,7 @@ document.querySelectorAll('.section-card').forEach(card => {
   card.addEventListener('click', () => {
     if (card.id === 'friends-card') return;
     if (card.id === 'card-coding') window.location.href = 'coding.html';
-    else if (card.id === 'card-theatre') window.location.href = 'theatre.html';
+    else if (card.id === 'card-theatre') window.openKeypad(() => { window.location.href = 'theatre.html'; });
   });
 });
 

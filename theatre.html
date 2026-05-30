@@ -10,6 +10,29 @@
 <body>
   <div id="scanline"></div>
 
+  <!-- Keypad modal -->
+  <div id="keypad-modal" aria-hidden="true">
+    <div id="keypad-box">
+      <div id="keypad-header">// ACCESS REQUIRED</div>
+      <div id="keypad-display"><span id="keypad-dots">&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span></div>
+      <div id="keypad-status"></div>
+      <div id="keypad-grid">
+        <button class="kp-btn" data-val="1">1</button>
+        <button class="kp-btn" data-val="2">2</button>
+        <button class="kp-btn" data-val="3">3</button>
+        <button class="kp-btn" data-val="4">4</button>
+        <button class="kp-btn" data-val="5">5</button>
+        <button class="kp-btn" data-val="6">6</button>
+        <button class="kp-btn" data-val="7">7</button>
+        <button class="kp-btn" data-val="8">8</button>
+        <button class="kp-btn" data-val="9">9</button>
+        <button class="kp-btn kp-clear" id="kp-clear">CLR</button>
+        <button class="kp-btn" data-val="0">0</button>
+        <button class="kp-btn kp-enter" id="kp-enter">ENT</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Lightbox -->
   <div id="lightbox" aria-hidden="true">
     <button id="lb-close">&#x2715;</button>
@@ -93,7 +116,10 @@
               <a class="detail-link" href="https://wcpss-my.sharepoint.com/:p:/g/personal/crschmidt3_students_wcpss_net/IQAwpvwWYjMYQb7YBo2LM6ctAbC8DbRFVpsr1Hjt0u31f9A?e=p9LOOK" target="_blank" rel="noopener">
                 &#x2197; View Lighting Shadows Presentation
               </a>
-              <p class="detail-reflection" style="margin-bottom:1rem;">// position &amp; angle</p>
+              <p class="detail-reflection">
+                "Lighting Shadows taught me that where a light comes from matters just as much as the light itself. A front light at leg height throws dramatic shadows upward and makes a face look almost threatening, while the same fixture raised to chest height creates something far more natural and flattering. Move it behind the subject entirely and suddenly they're just a silhouette — defined by shape, not detail. What really caught my attention was the side lights. The two side lights in this exercise were completely different color temperatures, and even though that wasn't the point of the assignment, it showed me something I hadn't thought about before: light sources in the real world are never perfectly matched, and that inconsistency is actually what makes a lighting design feel alive. Every position below tells a different story with the same face."
+              </p>
+              <p class="detail-reflection" style="margin-bottom:1rem; margin-top:1rem;">// position &amp; angle</p>
               <div class="shadow-grid">
                 <div class="shadow-card"><img src="images/shadow-leg.png" alt="Front Light Leg Height" loading="lazy" /><span class="shadow-label">Front Light — Leg Height</span></div>
                 <div class="shadow-card"><img src="images/shadow-chest.png" alt="Front Light Chest Height" loading="lazy" /><span class="shadow-label">Front Light — Chest Height</span></div>
@@ -140,7 +166,14 @@
             </div>
             <div class="assign-item"><span class="assign-type assignment">assignment</span><span class="assign-name">Final Light Cue Sheet</span></div>
             <div class="assign-item"><span class="assign-type url">external url</span><span class="assign-name">Updated Lighting and Sound Projects</span></div>
-            <div class="assign-item"><span class="assign-type assignment">assignment</span><span class="assign-name">Prompt Book</span></div>
+            <div class="assign-item keypad-locked" id="prompt-book-trigger">
+              <span class="assign-type assignment">assignment</span>
+              <span class="assign-name">Prompt Book</span>
+              <span class="lock-icon">&#x1F512;</span>
+            </div>
+            <div class="assign-details" id="prompt-book-details">
+              <p class="detail-reflection">"Prompt Book content unlocked."</p>
+            </div>
           </div>
 
           <div class="img-grid" data-section="lighting">

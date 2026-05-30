@@ -83,7 +83,7 @@ document.querySelectorAll('.section-card').forEach(card => {
     if (card.id === 'card-coding') {
       window.location.href = 'coding.html';
     } else if (card.id === 'card-theatre') {
-      window.location.href = 'theatre.html';
+      window.openKeypad(() => { window.location.href = 'theatre.html'; });
     }
   });
 });
