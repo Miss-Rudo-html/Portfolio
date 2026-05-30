@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caym · Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="scanline"></div>
+  <div id="terminal">
+    <div id="terminal-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green-dot"></span>
+      <span id="terminal-title">caym@portfolio:~</span>
+      <div id="version-wrap">
+        <button id="version-btn">v1.0.0-Beta</button>
+        <div id="changelog">
+          <div class="cl-header">// CHANGELOG</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Dual profile system — Caym &amp; Rudo_</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Terminal boot animation</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Alias dropdown on name hover</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Coding page — languages &amp; projects</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Tech Theatre page — 5 scroll sections</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Real photo galleries with lightbox</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Friends &amp; Supporters section</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Type to switch profiles (caym / Rudo_)</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Red dot back navigation</div>
+          <div class="cl-entry"><span class="cl-tag">fix</span> Advanced Tech Theatre → [Hopefully!]</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Version badge &amp; changelog panel</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="terminal-body">
+      <div id="boot-sequence" aria-live="polite"></div>
+
+      <div id="main-content" class="hidden">
+
+        <!-- Profile header -->
+        <div id="profile-header">
+          <div id="pfp-wrap">
+            <img id="pfp" src="Denji.png" alt="Caym"
+              onerror="this.style.display='none';document.getElementById('pfp-fallback').style.display='flex';" />
+            <div id="pfp-fallback">C_</div>
+          </div>
+
+          <div id="profile-meta">
+            <div id="name-row">
+              <div id="name-trigger" tabindex="0" aria-haspopup="listbox" aria-expanded="false">
+                <span id="display-name">Caym</span>
+                <span id="dropdown-arrow">&#x25BE;</span>
+                <div id="alias-dropdown" role="listbox" aria-label="Aliases">
+                  <div class="alias active" role="option">Caym</div>
+                  <div class="alias" role="option">Cam S</div>
+                  <div class="alias" role="option">Burn2128</div>
+                  <div class="alias" role="option">AxisDev</div>
+                  <div class="alias" role="option">Reze</div>
+                  <div class="alias" role="option">ShaulaJPG</div>
+                  <div class="alias" role="option">Rudo_</div>
+                </div>
+              </div>
+              <span id="pronouns">he/him</span>
+            </div>
+            <p id="tagline">// developer &amp; technical theatre practitioner</p>
+            <p id="status"><span class="blink-solid">&#x25CF;</span> online</p>
+          </div>
+        </div>
+
+        <!-- ASCII name -->
+        <pre id="ascii-name"></pre>
+
+        <!-- Divider -->
+        <div class="term-divider">
+          <span class="prompt-sym">visitor@portfolio:~$</span>
+          <span class="cmd"> ls --sections</span>
+        </div>
+
+        <!-- Section cards -->
+        <div id="sections-grid">
+
+          <!-- Coding -->
+          <div class="section-card" id="card-coding" tabindex="0" role="button">
+            <div class="card-header">
+              <span class="card-icon">&#x276F;_</span>
+              <span class="card-title">CODING</span>
+            </div>
+            <div class="card-body">
+              <div class="project-entry">
+                <span class="proj-name">Shapeshifter AI</span>
+                <span class="proj-tag">ai · app</span>
+              </div>
+              <div class="project-entry">
+                <span class="proj-name">Minecraft 1000 FPS Buffer Fixer</span>
+                <span class="proj-tag">tool · mc</span>
+              </div>
+              <div class="project-entry gh-link">
+                <span class="proj-icon">&#x2767;</span>
+                <a href="https://github.com/Miss-Rudo-html" target="_blank" rel="noopener">
+                  github.com/Miss-Rudo-html
+                </a>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span class="blink">[ CLICK TO EXPLORE ]</span>
+            </div>
+          </div>
+
+          <!-- Technical Theatre -->
+          <div class="section-card" id="card-theatre" tabindex="0" role="button">
+            <div class="card-header">
+              <span class="card-icon">&#x2605;</span>
+              <span class="card-title">TECH THEATRE</span>
+            </div>
+            <div class="card-body">
+              <div class="project-entry">
+                <span class="proj-name">WFHS Run Crew</span>
+                <span class="proj-tag">crew</span>
+              </div>
+              <div class="project-entry">
+                <span class="proj-name">Something Rotten!</span>
+                <span class="proj-tag">production</span>
+              </div>
+              <div class="project-entry">
+                <span class="proj-name">Beginner Tech Theatre</span>
+                <span class="proj-tag">freshman</span>
+              </div>
+              <div class="project-entry">
+                <span class="proj-name">Advanced Tech Theatre</span>
+                <span class="proj-tag">[Hopefully!]</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span class="blink">[ CLICK TO EXPLORE ]</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Friends & Supporters -->
+        <div class="term-divider" style="margin-top:1.4rem;">
+          <span class="prompt-sym">visitor@portfolio:~$</span>
+          <span class="cmd"> cat friends.txt</span>
+        </div>
+
+        <div id="friends-card" class="section-card full-width">
+          <div class="card-header">
+            <span class="card-icon">&#x2665;</span>
+            <span class="card-title">FRIENDS &amp; SUPPORTERS</span>
+          </div>
+          <div id="friends-grid">
+            <span class="friend">Elex Cochran</span>
+            <span class="friend">Richard Fitzpatrick</span>
+            <span class="friend">Antonio Kirkland</span>
+            <span class="friend">Sphereplaysgame</span>
+            <span class="friend">Filled</span>
+            <span class="friend">Pengusaur</span>
+            <span class="friend">Jinx</span>
+            <span class="friend">Lizar</span>
+            <span class="friend">Lala</span>
+            <span class="friend">Chris</span>
+            <span class="friend">Lamez</span>
+            <span class="friend">Cyn</span>
+            <span class="friend">Kitkat</span>
+            <span class="friend">Snubby.jpg</span>
+            <span class="friend">Conu</span>
+            <span class="friend">urboydani_</span>
+            <span class="friend">star_b0rn</span>
+          </div>
+        </div>
+
+        <!-- Interactive terminal input -->
+        <div class="term-divider" style="margin-top:1.4rem; opacity:0.5; font-size:0.7rem;">
+          // type a command and press enter
+        </div>
+        <p class="prompt-line" style="margin-top:0.5rem;">
+          <span class="prompt-sym">visitor@portfolio:~$</span>
+          <span id="typed-display"></span><span class="cursor">&#x2588;</span>
+        </p>
+        <p id="cmd-feedback" style="font-size:0.75rem; color:#00c83288; margin-top:0.3rem; min-height:1.1em;"></p>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="caym.js"></script>
+  <script src="nav.js"></script>
+</body>
+</html>

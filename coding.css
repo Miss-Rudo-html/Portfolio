@@ -1,0 +1,170 @@
+/* ── Coding page specific styles ── */
+
+.section-gap { height: 0.8rem; }
+
+.back-link {
+  text-decoration: none;
+  color: var(--green-dim);
+  transition: color 0.15s;
+}
+.back-link:hover { color: var(--green); }
+
+.page-section {
+  margin-top: 0.6rem;
+}
+
+/* Language grid */
+#lang-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 0.7rem;
+  margin-top: 0.3rem;
+}
+
+.lang-card {
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  border-radius: 4px;
+  padding: 0.9rem 0.6rem 0.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+  cursor: default;
+}
+
+.lang-card:hover {
+  border-color: var(--green);
+  background: #071507;
+  box-shadow: 0 0 12px #00ff4115;
+}
+
+.lang-card i {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* Fallback for languages without devicons */
+.lang-icon-custom {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: var(--green);
+  text-shadow: 0 0 6px var(--green);
+  line-height: 1;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.lang-icon-custom sup { font-size: 0.8em; }
+
+.lang-icon-custom.luau {
+  background: linear-gradient(135deg, #00b4ff, #0057ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 4px #0099ff88);
+}
+
+.lang-name {
+  font-size: 0.72rem;
+  color: var(--green-dim);
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.learning-badge {
+  display: inline-block;
+  font-size: 0.58rem;
+  color: #ffbd2e;
+  border: 1px solid #ffbd2e55;
+  border-radius: 2px;
+  padding: 0 3px;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+
+/* Projects list */
+#projects-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.3rem;
+}
+
+@media (max-width: 560px) {
+  #projects-list { grid-template-columns: 1fr; }
+}
+
+.proj-card {
+  display: block;
+  text-decoration: none;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  border-radius: 4px;
+  padding: 0.9rem 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.proj-card:hover {
+  border-color: var(--green);
+  background: #071507;
+  box-shadow: 0 0 14px #00ff4115;
+}
+
+.proj-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.proj-card-icon {
+  color: var(--green);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.proj-card-name {
+  font-size: 0.82rem;
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  flex: 1;
+}
+
+.proj-card-arrow {
+  font-size: 0.9rem;
+  color: #00ff4144;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.proj-card:hover .proj-card-arrow { color: var(--green); }
+
+.proj-card-desc {
+  font-size: 0.73rem;
+  color: #00c83299;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.5;
+  margin-bottom: 0.6rem;
+}
+
+.proj-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.tag {
+  font-size: 0.62rem;
+  color: #00ff4166;
+  border: 1px solid #00ff4122;
+  border-radius: 2px;
+  padding: 1px 5px;
+  font-family: 'Share Tech Mono', monospace;
+}
+
+.inline-link {
+  color: var(--green-dim);
+  transition: color 0.15s;
+}
+.inline-link:hover { color: var(--green); }
