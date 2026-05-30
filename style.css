@@ -451,6 +451,16 @@ html, body {
   text-shadow: 0 0 6px var(--green);
 }
 
+.friend.red {
+  color: #ff5f57aa;
+  border-color: #ff5f5733;
+}
+.friend.red:hover {
+  color: #ff5f57;
+  border-color: #ff5f57;
+  text-shadow: 0 0 6px #ff5f57;
+}
+
 /* Prompt line at bottom */
 .prompt-line {
   font-size: 0.84rem;
