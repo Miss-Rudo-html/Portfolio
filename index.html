@@ -405,16 +405,7 @@
     </div>
   </div>
 
-  <!-- Profile Switcher -->
-  <div id="profile-switcher" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;box-shadow:0 0 16px #00ff4115;font-family:'Share Tech Mono',monospace;">
-    <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:5px 10px;font-size:0.55rem;color:#00ff4166;">// switch profile</div>
-    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 12px;">
-      <img src="images/media/image.png" alt="Rudo_" style="width:64px;height:64px;border-radius:50%;border:2px solid #00ff4155;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-      <span style="font-size:0.72rem;color:#00ff41cc;letter-spacing:0.05em;">Rudo_</span>
-      <span style="font-size:0.58rem;color:#00ff4144;">// private profile</span>
-      <button id="ps-switch-btn" style="margin-top:4px;width:100%;font-family:'Share Tech Mono',monospace;font-size:0.68rem;background:#00ff4118;border:1px solid #00ff4166;color:#00ff41;border-radius:3px;padding:6px 0;cursor:pointer;letter-spacing:0.08em;">⇄ SWITCH</button>
-    </div>
-  </div>
+  <!-- Profile Switcher (banner pfp) — injected into banner via JS below -->
 
   <!-- Profile Keypad (code: 7171) — hidden by default -->
   <div id="profile-keypad-modal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:9999;align-items:center;justify-content:center;">
@@ -499,6 +490,16 @@
   </script>
   <script>
     (function () {
+      // Inject pfp switcher button onto the banner
+      const banner = document.getElementById('profile-banner');
+      const btn = document.createElement('button');
+      btn.title = 'Switch to Rudo_';
+      btn.style.cssText = 'position:absolute;top:10px;right:10px;z-index:10;background:none;border:2px solid #00ff4166;border-radius:50%;padding:0;cursor:pointer;width:44px;height:44px;overflow:hidden;box-shadow:0 0 10px #00ff4133;transition:border-color 0.2s,box-shadow 0.2s;';
+      btn.innerHTML = '<img src="images/media/image.png" style="width:100%;height:100%;object-fit:cover;border-radius:50%;" onerror="this.style.display=\'none\'" />';
+      btn.addEventListener('mouseenter', () => { btn.style.borderColor='#00ff41'; btn.style.boxShadow='0 0 16px #00ff4166'; });
+      btn.addEventListener('mouseleave', () => { btn.style.borderColor='#00ff4166'; btn.style.boxShadow='0 0 10px #00ff4133'; });
+      banner.appendChild(btn);
+
       const CODE = '7171';
       const modal  = document.getElementById('profile-keypad-modal');
       const dots   = document.getElementById('pkp-dots');
@@ -509,9 +510,9 @@
       }
       function openModal()  { input = ''; updateDots(); status.textContent = ''; modal.style.display = 'flex'; }
       function closeModal() { modal.style.display = 'none'; }
-      document.getElementById('ps-switch-btn').addEventListener('click', openModal);
-      modal.querySelectorAll('[data-pkp]').forEach(btn => {
-        btn.addEventListener('click', () => { if (input.length >= 4) return; input += btn.dataset.pkp; updateDots(); });
+      btn.addEventListener('click', openModal);
+      modal.querySelectorAll('[data-pkp]').forEach(b => {
+        b.addEventListener('click', () => { if (input.length >= 4) return; input += b.dataset.pkp; updateDots(); });
       });
       document.getElementById('pkp-clear').addEventListener('click', () => { input = ''; updateDots(); });
       document.getElementById('pkp-enter').addEventListener('click', () => {
