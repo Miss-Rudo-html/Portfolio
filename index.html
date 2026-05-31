@@ -372,80 +372,14 @@
   </div>
 
   <!-- Profile Switcher -->
-  <!-- LEFT SIDE: 3 friend windows -->
-  <div style="position:fixed;left:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:8px;">
-
-    <div style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;font-family:'Share Tech Mono',monospace;box-shadow:0 0 10px #00ff4110;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 10px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 10px;">
-        <img src="images/pfp/elexprofile.jpg" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
-        <span style="font-size:0.68rem;color:#ffbd2e;">Gatling Aspid</span>
-        <a href="https://youtube.com/@gatlingaspid6050?si=cZau9vXEzf5jjaUM" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
-          <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
-        </a>
-      </div>
+  <div id="profile-switcher" style="position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;box-shadow:0 0 16px #00ff4115;font-family:'Share Tech Mono',monospace;">
+    <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:5px 10px;font-size:0.55rem;color:#00ff4166;">// switch profile</div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:16px 12px;">
+      <img src="images/media/image.png" alt="Rudo_" style="width:64px;height:64px;border-radius:50%;border:2px solid #00ff4155;object-fit:cover;display:block;" onerror="this.style.display='none'" />
+      <span style="font-size:0.72rem;color:#00ff41cc;letter-spacing:0.05em;">Rudo_</span>
+      <span style="font-size:0.58rem;color:#00ff4144;">// private profile</span>
+      <button id="ps-switch-btn" style="margin-top:4px;width:100%;font-family:'Share Tech Mono',monospace;font-size:0.68rem;background:#00ff4118;border:1px solid #00ff4166;color:#00ff41;border-radius:3px;padding:6px 0;cursor:pointer;letter-spacing:0.08em;">&#x21C4; SWITCH</button>
     </div>
-
-    <div style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;font-family:'Share Tech Mono',monospace;box-shadow:0 0 10px #00ff4110;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 10px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 10px;">
-        <img src="images/pfp/filledpfp.jpeg" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
-        <span style="font-size:0.68rem;color:#e8e8e8;">Filled</span>
-        <a href="https://www.tiktok.com/@filledwithdeterminat?_r=1&_t=ZP-96nwQ0l7HyR" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
-          <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
-        </a>
-      </div>
-    </div>
-
-    <div style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;font-family:'Share Tech Mono',monospace;box-shadow:0 0 10px #00ff4110;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 10px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 10px;">
-        <img src="images/pfp/snubbypfp.png" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
-        <span style="font-size:0.68rem;color:#60cfff;">Snubby</span>
-        <a href="https://snubby.top/" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
-          <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- RIGHT SIDE: profile switcher + 2 friend windows -->
-  <div style="position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:8px;">
-
-    <div style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;font-family:'Share Tech Mono',monospace;box-shadow:0 0 10px #00ff4110;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 10px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 10px;">
-        <img src="images/pfp/figureitout pfp.jpg" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
-        <span style="font-size:0.68rem;color:#ff9500;">FigureItOut</span>
-        <a href="https://www.instagram.com/figureiutbroski?igsh=MXA0YnFvdmM4MnM0bQ==" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
-          <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
-        </a>
-      </div>
-    </div>
-
-    <!-- Profile Switcher -->
-    <div id="profile-switcher" style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;box-shadow:0 0 16px #00ff4115;font-family:'Share Tech Mono',monospace;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:5px 10px;font-size:0.55rem;color:#00ff4166;">// switch profile</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 10px;">
-        <img src="images/media/image.png" alt="Rudo_" style="width:52px;height:52px;border-radius:50%;border:2px solid #00ff4155;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-        <span style="font-size:0.68rem;color:#00ff41cc;">Rudo_</span>
-        <span style="font-size:0.55rem;color:#00ff4144;">// private profile</span>
-        <button id="ps-switch-btn" style="margin-top:2px;width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4118;border:1px solid #00ff4166;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x21C4; SWITCH</button>
-      </div>
-    </div>
-
-    <div style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;font-family:'Share Tech Mono',monospace;box-shadow:0 0 10px #00ff4110;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 10px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 10px;">
-        <img src="images/pfp/rain.png" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
-        <span style="font-size:0.68rem;color:#60cfff;">Rain</span>
-        <a href="https://www.its-rain.ing/home" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
-          <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
-        </a>
-      </div>
-    </div>
-
   </div>
 
   <!-- Profile Keypad (7171) -->

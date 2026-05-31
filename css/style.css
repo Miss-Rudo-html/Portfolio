@@ -49,7 +49,7 @@ html, body {
 
 /* Terminal window */
 #terminal {
-  width: min(860px, calc(100vw - 420px));
+  width: min(860px, 96vw);
   max-height: 92vh;
   background: var(--black);
   border: 1px solid #00ff4155;
