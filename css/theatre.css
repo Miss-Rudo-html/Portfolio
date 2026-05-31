@@ -508,6 +508,32 @@ body {
   line-height: 1.5;
 }
 
+/* ── Learning points ── */
+.learnings {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.learnings li {
+  font-size: 0.73rem;
+  color: #00ff4199;
+  font-family: 'Share Tech Mono', monospace;
+  line-height: 1.65;
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.learnings li::before {
+  content: '//';
+  position: absolute;
+  left: 0;
+  color: #00ff4144;
+}
+
 /* ── Progress timeline ── */
 .progress-timeline {
   display: flex;
