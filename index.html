@@ -15,7 +15,7 @@
       <span class="dot green-dot"></span>
       <span id="terminal-title">caym@portfolio:~</span>
       <div id="version-wrap">
-        <button id="version-btn">v1.8.5-Beta</button>
+        <button id="version-btn">v2.0.0</button>
         <div id="changelog">
           <div class="cl-header">// CHANGELOG</div>
           <div class="cl-entry"><span class="cl-tag">new</span> Dual profile system — Caym &amp; Rudo_</div>
@@ -45,6 +45,9 @@
           <div class="cl-entry"><span class="cl-tag">new</span> Lighting Shadows reflection paragraph added</div>
           <div class="cl-entry"><span class="cl-tag">new</span> Prompt Book locked behind keypad — code required</div>
           <div class="cl-entry"><span class="cl-tag">new</span> Full Tech Theatre section locked — keypad on main menu card</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> SME - Eagler section added to Rudo_ profile — password locked</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> SME page: player spotlights, art gallery, server lore</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Goals section — Birch, Wake Tech, big shows</div>
         </div>
       </div>
     </div>
@@ -111,6 +114,23 @@
           </div>
         </div>
 
+        <!-- Goals -->
+        <div class="term-divider" style="margin-top:1rem;">
+          <span class="prompt-sym">visitor@portfolio:~$</span>
+          <span class="cmd"> cat goals.txt</span>
+        </div>
+        <div class="section-card full-width" style="margin-top:0.6rem;cursor:default;">
+          <div class="card-header">
+            <span class="card-icon">&#x25B6;</span>
+            <span class="card-title">GOALS</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <div class="tool-card"><span class="tool-name">// finish writing &amp; publish Birch</span><span class="tool-desc">See it through to the end. Every chapter, every arc, every page — done right and put out into the world.</span></div>
+            <div class="tool-card"><span class="tool-name">// get into Wake Tech</span><span class="tool-desc">Next step after high school. Start building something real.</span></div>
+            <div class="tool-card"><span class="tool-name">// get into big shows as crew</span><span class="tool-desc">Move up from school productions to larger stages. More complex rigs, bigger rooms, real pressure.</span></div>
+          </div>
+        </div>
+
         <!-- Divider -->
         <div class="term-divider" style="margin-top:1rem;">
           <span class="prompt-sym">visitor@portfolio:~$</span>
@@ -173,6 +193,31 @@
             </div>
             <div class="card-footer">
               <span class="blink">[ CLICK TO EXPLORE ]</span>
+            </div>
+          </div>
+
+          <!-- SME - Eagler -->
+          <div class="section-card" id="card-sme" tabindex="0" role="button">
+            <div class="card-header">
+              <span class="card-icon">&#x26D4;</span>
+              <span class="card-title">SME - EAGLER</span>
+            </div>
+            <div class="card-body">
+              <div class="project-entry">
+                <span class="proj-name">Server Community</span>
+                <span class="proj-tag">mc · eagler</span>
+              </div>
+              <div class="project-entry">
+                <span class="proj-name">Name Clan &amp; Money Clan</span>
+                <span class="proj-tag">clans</span>
+              </div>
+              <div class="project-entry">
+                <span class="proj-name">Role: Helper</span>
+                <span class="proj-tag">staff</span>
+              </div>
+            </div>
+            <div class="card-footer">
+              <span class="blink">[ 🔒 ACCESS REQUIRED ]</span>
             </div>
           </div>
 
@@ -394,9 +439,64 @@
     </div>
   </div>
 
+  <!-- SME Keypad (code: 2128) -->
+  <div id="sme-keypad-modal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:9999;align-items:center;justify-content:center;">
+    <div id="skp-box" style="background:#050f05;border:1px solid #00ff4155;border-radius:6px;padding:1.2rem;width:200px;font-family:'Share Tech Mono',monospace;">
+      <div style="font-size:0.75rem;color:#00ff41;text-align:center;margin-bottom:0.8rem;letter-spacing:0.1em;">// SME - EAGLER</div>
+      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="skp-dots">○○○○</div>
+      <div id="skp-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+        <button class="kp-btn" data-skp="1">1</button>
+        <button class="kp-btn" data-skp="2">2</button>
+        <button class="kp-btn" data-skp="3">3</button>
+        <button class="kp-btn" data-skp="4">4</button>
+        <button class="kp-btn" data-skp="5">5</button>
+        <button class="kp-btn" data-skp="6">6</button>
+        <button class="kp-btn" data-skp="7">7</button>
+        <button class="kp-btn" data-skp="8">8</button>
+        <button class="kp-btn" data-skp="9">9</button>
+        <button class="kp-btn kp-clear" id="skp-clear">CLR</button>
+        <button class="kp-btn" data-skp="0">0</button>
+        <button class="kp-btn kp-enter" id="skp-enter">ENT</button>
+      </div>
+    </div>
+  </div>
+
   <script src="js/keypad.js"></script>
   <script src="js/caym.js"></script>
   <script src="js/nav.js"></script>
+  <script>
+    (function () {
+      const CODE = '2128';
+      const modal  = document.getElementById('sme-keypad-modal');
+      const dots   = document.getElementById('skp-dots');
+      const status = document.getElementById('skp-status');
+      let input = '';
+      function updateDots() {
+        dots.textContent = '●'.repeat(input.length) + '○'.repeat(Math.max(0, 4 - input.length));
+      }
+      function openModal()  { input = ''; updateDots(); status.textContent = ''; modal.style.display = 'flex'; }
+      function closeModal() { modal.style.display = 'none'; }
+      document.getElementById('card-sme').addEventListener('click', openModal);
+      document.getElementById('card-sme').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') openModal(); });
+      modal.querySelectorAll('[data-skp]').forEach(btn => {
+        btn.addEventListener('click', () => { if (input.length >= 4) return; input += btn.dataset.skp; updateDots(); });
+      });
+      document.getElementById('skp-clear').addEventListener('click', () => { input = ''; updateDots(); });
+      document.getElementById('skp-enter').addEventListener('click', () => {
+        if (input === CODE) {
+          status.textContent = '// ACCESS GRANTED';
+          status.style.color = '#00ff41';
+          setTimeout(() => { window.location.href = 'sme.html'; }, 600);
+        } else {
+          status.textContent = '// ACCESS DENIED';
+          status.style.color = '#ff5f57';
+          input = ''; updateDots();
+        }
+      });
+      modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
+    })();
+  </script>
   <script>
     (function () {
       const CODE = '7171';

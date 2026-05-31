@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SME · Eagler</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── SME-specific styles ── */
+    #sme-banner {
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow: visible;
+      border-radius: 6px;
+      margin-bottom: 1.2rem;
+      border: 1px solid #00ff4133;
+    }
+    #sme-banner img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: brightness(0.75);
+    }
+    #sme-banner-text {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+    #sme-banner-text .sme-title {
+      font-size: 1.6rem;
+      color: #00ff41;
+      letter-spacing: 0.18em;
+      text-shadow: 0 0 18px #00ff4188;
+      font-family: 'Share Tech Mono', monospace;
+    }
+    #sme-banner-text .sme-sub {
+      font-size: 0.62rem;
+      color: #00ff4199;
+      letter-spacing: 0.12em;
+    }
+
+    /* player grid */
+    #player-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .player-card {
+      background: #050f05;
+      border: 1px solid #00ff4133;
+      border-radius: 6px;
+      overflow: hidden;
+      font-family: 'Share Tech Mono', monospace;
+      box-shadow: 0 0 10px #00ff4110;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .player-card:hover {
+      border-color: #00ff4166;
+      box-shadow: 0 0 16px #00ff4122;
+    }
+    .player-card-header {
+      background: #0a0a0a;
+      border-bottom: 1px solid #00ff4122;
+      padding: 5px 10px;
+      font-size: 0.5rem;
+      color: #00ff4166;
+    }
+    .player-card-body {
+      padding: 12px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .player-name {
+      font-size: 0.82rem;
+      color: #00ff41;
+      letter-spacing: 0.06em;
+    }
+    .player-role-tag {
+      font-size: 0.56rem;
+      color: #00ff4177;
+      background: #00ff4112;
+      border: 1px solid #00ff4133;
+      border-radius: 3px;
+      padding: 2px 6px;
+      display: inline-block;
+      width: fit-content;
+    }
+    .player-desc {
+      font-size: 0.6rem;
+      color: #00ff4199;
+      line-height: 1.5;
+      margin-top: 4px;
+    }
+    .player-pfp {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid #00ff4155;
+      object-fit: cover;
+      margin-bottom: 6px;
+    }
+    .player-pfp-placeholder {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid #00ff4155;
+      background: #0a1a0a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #00ff4155;
+      margin-bottom: 6px;
+    }
+
+    /* role badge colors */
+    .role-owner    { color: #ff5f57; border-color: #ff5f5733; background: #ff5f5712; }
+    .role-headmod  { color: #60cfff; border-color: #60cfff33; background: #60cfff12; }
+    .role-helper   { color: #00ff41; border-color: #00ff4133; background: #00ff4112; }
+    .role-pvper    { color: #aee6ff; border-color: #aee6ff33; background: #aee6ff12; }
+    .role-clan     { color: #ff6eb4; border-color: #ff6eb433; background: #ff6eb412; }
+    .role-royal    { color: #b06aff; border-color: #b06aff33; background: #b06aff12; }
+    .role-asst     { color: #ffbd2e; border-color: #ffbd2e33; background: #ffbd2e12; }
+
+    /* art gallery */
+    #art-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.8rem;
+    }
+    .art-item {
+      background: #050f05;
+      border: 1px solid #00ff4133;
+      border-radius: 6px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .art-item:hover {
+      border-color: #00ff4166;
+      box-shadow: 0 0 16px #00ff4122;
+    }
+    .art-item img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 200px;
+    }
+    .art-label {
+      font-size: 0.55rem;
+      color: #00ff4177;
+      padding: 5px 8px;
+      font-family: 'Share Tech Mono', monospace;
+      border-top: 1px solid #00ff4122;
+    }
+
+    /* lightbox */
+    #art-lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: #000000ee;
+      z-index: 9998;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+    #art-lightbox.open { display: flex; }
+    #art-lightbox img {
+      max-width: 90vw;
+      max-height: 80vh;
+      border: 1px solid #00ff4155;
+      border-radius: 6px;
+    }
+    #art-lightbox-label {
+      font-size: 0.65rem;
+      color: #00ff4199;
+      font-family: 'Share Tech Mono', monospace;
+    }
+    #art-lightbox-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 1.2rem;
+      color: #00ff41;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: 'Share Tech Mono', monospace;
+    }
+  </style>
+</head>
+<body>
+  <div id="scanline"></div>
+  <div id="terminal">
+    <div id="terminal-bar">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green-dot"></span>
+      <span id="terminal-title">rudo@sme-eagler:~</span>
+      <div id="version-wrap">
+        <button id="version-btn">v1.9.9</button>
+        <div id="changelog">
+          <div class="cl-header">// CHANGELOG</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> SME - Eagler section — password locked, from Rudo_ profile</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Player spotlights — Snubs, Amber, Rudo_, Seadon, Conupon, urboydani_, PinkLem3Love, the_piggler</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Art gallery — clan banners, server art, screenshots</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="terminal-body">
+      <div id="boot-sequence" aria-live="polite"></div>
+
+      <div id="main-content" class="hidden">
+
+        <!-- SME Banner -->
+        <div id="sme-banner">
+          <img src="images/media/smemainbanner.png" alt="SME banner" onerror="this.style.display='none'" />
+          <div id="sme-banner-text">
+            <span class="sme-title">SME · EAGLER</span>
+            <span class="sme-sub">// start my education · mc community</span>
+          </div>
+        </div>
+
+        <!-- About SME -->
+        <div class="term-divider" style="margin-top:0.5rem;">
+          <span class="prompt-sym">rudo@sme-eagler:~$</span>
+          <span class="cmd"> cat about_sme.txt</span>
+        </div>
+        <div class="section-card full-width" style="margin-top:0.6rem;cursor:default;">
+          <div class="card-header">
+            <span class="card-icon">&#x276F;_</span>
+            <span class="card-title">ABOUT SME</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:0.5rem;">
+            <div class="tool-card">
+              <span class="tool-name">// what is it</span>
+              <span class="tool-desc">SME stands for "Start My Education" — a cover name for an unblocked games website that secretly runs a full Minecraft (Eaglercraft) server. It's where this whole community lives.</span>
+            </div>
+            <div class="tool-card">
+              <span class="tool-name">// the server</span>
+              <span class="tool-desc">An Eaglercraft MC server with an active player base, clan wars, PvP rankings, and a real staff team. Two major clans run the server's social scene — Name Clan (#1) and Money Clan (#2).</span>
+            </div>
+            <div class="tool-card">
+              <span class="tool-name">// my role</span>
+              <span class="tool-desc">I'm a Helper on the server — part of the official staff team. I report to Amber (Head Mod) and assist players, handle situations, and keep things running. the_piggler is my assistant.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Players -->
+        <div class="term-divider" style="margin-top:1.4rem;">
+          <span class="prompt-sym">rudo@sme-eagler:~$</span>
+          <span class="cmd"> ls --players</span>
+        </div>
+
+        <div id="player-grid">
+
+          <!-- Snubs -->
+          <div class="player-card">
+            <div class="player-card-header">// server owner</div>
+            <div class="player-card-body">
+              <img src="images/pfp/snubbypfp.png" class="player-pfp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="player-pfp-placeholder" style="display:none;">S</div>
+              <span class="player-name">Snubs</span>
+              <span class="player-role-tag role-owner">Owner</span>
+              <p class="player-desc">The owner of SME. Runs the whole operation — the site, the server, everything. Top of the food chain.</p>
+            </div>
+          </div>
+
+          <!-- Amber -->
+          <div class="player-card">
+            <div class="player-card-header">// head moderator</div>
+            <div class="player-card-body">
+              <img src="https://cdn.discordapp.com/avatars/1286858539662573641/95d72129e92117a86e75fec51c27ea9c.webp?size=1024" class="player-pfp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="player-pfp-placeholder" style="display:none;">A</div>
+              <span class="player-name">Amber</span>
+              <span class="player-role-tag role-headmod">Head Mod</span>
+              <p class="player-desc">Head Mod of the server. Directly above me in the staff chain. Keeps the moderation team organized and handles escalations.</p>
+            </div>
+          </div>
+
+          <!-- Rudo_ (me) -->
+          <div class="player-card" style="border-color:#00ff4166;box-shadow:0 0 14px #00ff4120;">
+            <div class="player-card-header">// you are here</div>
+            <div class="player-card-body">
+              <img src="images/media/image.png" class="player-pfp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="player-pfp-placeholder" style="display:none;">R_</div>
+              <span class="player-name">Rudo_ <span style="font-size:0.55rem;color:#00ff4155;">← me</span></span>
+              <span class="player-role-tag role-helper">Helper</span>
+              <p class="player-desc">That's me. Helper on SME — part of the official staff team. I assist players, manage situations, and keep things moving. the_piggler is my assistant.</p>
+            </div>
+          </div>
+
+          <!-- Seadon -->
+          <div class="player-card">
+            <div class="player-card-header">// money clan · #2 clan</div>
+            <div class="player-card-body">
+              <img src="https://cdn.discordapp.com/avatars/1172328977860403290/c4a96fa7c9898b9bf9f7947d1313bb53.webp?size=1024" class="player-pfp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="player-pfp-placeholder" style="display:none;">Se</div>
+              <span class="player-name">Seadon</span>
+              <span class="player-role-tag role-pvper">Top PvPer · Clan Leader</span>
+              <p class="player-desc">One of the best PvPers on the server and the leader of Money Clan — the #2 ranked clan on SME. Respected for his combat skill.</p>
+            </div>
+          </div>
+
+          <!-- Conupon -->
+          <div class="player-card">
+            <div class="player-card-header">// name clan · #1 clan</div>
+            <div class="player-card-body">
+              <img src="https://cdn.discordapp.com/avatars/1195743027734515853/4048f77b8619afb76b56f0874741752e.webp?size=1024" class="player-pfp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="player-pfp-placeholder" style="display:none;">C</div>
+              <span class="player-name">Conupon</span>
+              <span class="player-role-tag role-clan">Founder · Name Clan</span>
+              <p class="player-desc">The founder of Name Clan and one of its 7 leaders. Name Clan is the #1 ranked clan on the server. Conu built the foundation that made it what it is.</p>
+            </div>
+          </div>
+
+          <!-- urboydani_ -->
+          <div class="player-card">
+            <div class="player-card-header">// name clan · #1 clan</div>
+            <div class="player-card-body">
+              <img src="images/pfp/dani.png" class="player-pfp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="player-pfp-placeholder" style="display:none;">D</div>
+              <span class="player-name">urboydani_</span>
+              <span class="player-role-tag role-clan">Leader · Name Clan</span>
+              <p class="player-desc">One of the more prominent leaders in Name Clan. A recognizable figure in the server's social scene and clan politics.</p>
+            </div>
+          </div>
+
+          <!-- PinkLem3Love -->
+          <div class="player-card">
+            <div class="player-card-header">// r0yal clan</div>
+            <div class="player-card-body">
+              <img src="images/pfp/pink.png" class="player-pfp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="player-pfp-placeholder" style="display:none;">P</div>
+              <span class="player-name">PinkLem3Love</span>
+              <span class="player-role-tag role-royal">Leader · R0YAL Clan</span>
+              <p class="player-desc">Leader of R0YAL Clan. Runs one of the server's notable clans and holds a distinct presence in the community.</p>
+            </div>
+          </div>
+
+          <!-- the_piggler -->
+          <div class="player-card">
+            <div class="player-card-header">// rudo_'s assistant</div>
+            <div class="player-card-body">
+              <img src="https://cdn.discordapp.com/avatars/712373658324303923/ffdfa6f53e3f707797c3a18c98442d34.webp?size=1024" class="player-pfp" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+              <div class="player-pfp-placeholder" style="display:none;">Pg</div>
+              <span class="player-name">the_piggler</span>
+              <span class="player-role-tag role-asst">Rudo_'s Assistant</span>
+              <p class="player-desc">My assistant on the server. Helps me with tasks, keeps things moving. A reliable presence when I need backup.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Art Gallery -->
+        <div class="term-divider" style="margin-top:1.4rem;">
+          <span class="prompt-sym">rudo@sme-eagler:~$</span>
+          <span class="cmd"> ls images/media/</span>
+        </div>
+
+        <div class="section-card full-width" style="margin-top:0.6rem;cursor:default;">
+          <div class="card-header">
+            <span class="card-icon">&#x2767;</span>
+            <span class="card-title">ART &amp; MEDIA</span>
+          </div>
+          <div id="art-gallery">
+
+            <div class="art-item" data-src="images/media/rudo_bannr.png" data-label="Rudo_ Banner">
+              <img src="images/media/rudo_bannr.png" alt="Rudo_ Banner" />
+              <div class="art-label">// rudo_ · banner art</div>
+            </div>
+
+            <div class="art-item" data-src="images/media/nameclan.png" data-label="Name Clan">
+              <img src="images/media/nameclan.png" alt="Name Clan" />
+              <div class="art-label">// name clan · #1 clan</div>
+            </div>
+
+            <div class="art-item" data-src="images/media/pink_castle.png" data-label="Pink Castle — PinkLem3Love">
+              <img src="images/media/pink_castle.png" alt="Pink Castle" />
+              <div class="art-label">// pink castle · r0yal clan</div>
+            </div>
+
+<div class="art-item" data-src="images/media/aden_gooncity.png" data-label="Aden — Goon City">
+              <img src="images/media/aden_gooncity.png" alt="Aden Goon City" />
+              <div class="art-label">// aden · goon city</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Terminal line -->
+        <div class="term-divider" style="margin-top:1.4rem; opacity:0.5; font-size:0.7rem;">
+          // end of file
+        </div>
+        <p class="prompt-line" style="margin-top:0.5rem;">
+          <span class="prompt-sym">rudo@sme-eagler:~$</span>
+          <span class="cursor">&#x2588;</span>
+        </p>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Art Lightbox -->
+  <div id="art-lightbox">
+    <button id="art-lightbox-close">✕ close</button>
+    <img id="art-lightbox-img" src="" alt="" />
+    <div id="art-lightbox-label"></div>
+  </div>
+
+  <script src="js/nav.js"></script>
+  <script>
+    // Boot sequence (reuse pattern from main pages)
+    (function () {
+      const bootEl = document.getElementById('boot-sequence');
+      const mainEl = document.getElementById('main-content');
+      const lines = [
+        '> connecting to sme-eagler...',
+        '> authenticating credentials...',
+        '> ACCESS GRANTED',
+        '> loading server data...',
+      ];
+      let i = 0;
+      function nextLine() {
+        if (i >= lines.length) {
+          bootEl.style.display = 'none';
+          mainEl.classList.remove('hidden');
+          return;
+        }
+        const p = document.createElement('p');
+        p.className = 'prompt-line';
+        p.style.fontSize = '0.72rem';
+        p.style.color = i === 2 ? '#00ff41' : '#00ff4188';
+        p.textContent = lines[i];
+        bootEl.appendChild(p);
+        i++;
+        setTimeout(nextLine, i === 3 ? 180 : 260);
+      }
+      setTimeout(nextLine, 300);
+    })();
+
+    // Art lightbox
+    (function () {
+      const lb     = document.getElementById('art-lightbox');
+      const lbImg  = document.getElementById('art-lightbox-img');
+      const lbLbl  = document.getElementById('art-lightbox-label');
+      const lbClose= document.getElementById('art-lightbox-close');
+
+      document.querySelectorAll('.art-item').forEach(item => {
+        item.addEventListener('click', () => {
+          lbImg.src = item.dataset.src;
+          lbLbl.textContent = '// ' + item.dataset.label;
+          lb.classList.add('open');
+        });
+      });
+      lbClose.addEventListener('click', () => lb.classList.remove('open'));
+      lb.addEventListener('click', e => { if (e.target === lb) lb.classList.remove('open'); });
+    })();
+  </script>
+</body>
+</html>
