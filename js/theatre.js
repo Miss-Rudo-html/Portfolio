@@ -1,7 +1,8 @@
 // ── Sidebar active link on scroll ──
-const sections  = document.querySelectorAll('.theatre-section');
-const navLinks  = document.querySelectorAll('.nav-link');
+const sections   = document.querySelectorAll('.theatre-section');
+const navLinks   = document.querySelectorAll('.nav-link');
 const scrollArea = document.getElementById('scroll-area');
+const sidebar    = document.getElementById('sidebar');
 
 scrollArea.addEventListener('scroll', () => {
   let current = '';
@@ -18,8 +19,29 @@ navLinks.forEach(link => {
     e.preventDefault();
     document.querySelector(link.getAttribute('href'))
       ?.scrollIntoView({ behavior: 'smooth' });
+    closeSidebar();
   });
 });
+
+// ── Mobile sidebar toggle ──
+const sidebarToggle  = document.getElementById('sidebar-toggle');
+const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+function openSidebar() {
+  sidebar.classList.add('open');
+  sidebarOverlay.classList.add('open');
+}
+
+function closeSidebar() {
+  sidebar.classList.remove('open');
+  sidebarOverlay.classList.remove('open');
+}
+
+sidebarToggle.addEventListener('click', () => {
+  sidebar.classList.contains('open') ? closeSidebar() : openSidebar();
+});
+
+sidebarOverlay.addEventListener('click', closeSidebar);
 
 // ── Lightbox ──
 const lb        = document.getElementById('lightbox');
