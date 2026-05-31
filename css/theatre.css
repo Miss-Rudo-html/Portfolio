@@ -341,7 +341,7 @@ body {
 /* Lock icon on Prompt Book */
 .assign-item.keypad-locked { cursor: pointer; }
 .assign-item.keypad-locked:hover { border-color: var(--green); background: #071507; }
-.lock-icon { margin-left: auto; font-size: 0.85rem; }
+.lock-icon { margin-left: auto; font-size: 1.1rem; }
 .assign-item.keypad-locked.unlocked .lock-icon::before { content: '🔓'; }
 
 /* ── Expandable assignment details ── */
