@@ -98,28 +98,16 @@
           <span class="prompt-sym">visitor@portfolio:~$</span>
           <span class="cmd"> cat about.txt</span>
         </div>
-        <div class="section-card full-width" style="margin-top:0.6rem; cursor:default;" onclick="">
+        <div class="section-card full-width" style="margin-top:0.6rem;cursor:default;">
           <div class="card-header">
             <span class="card-icon">&#x276F;_</span>
             <span class="card-title">ABOUT ME</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <div class="tool-card">
-              <span class="tool-name">// who am i</span>
-              <span class="tool-desc">15 y/o developer &amp; tech theatre practitioner. Male. Anime enjoyer. I like working with my hands — building, cutting, making things real.</span>
-            </div>
-            <div class="tool-card">
-              <span class="tool-name">// coding</span>
-              <span class="tool-desc">3 years of experience. Comfortable building web projects from scratch — HTML, CSS, JavaScript. I like making things that actually look good and work well, not just tutorials.</span>
-            </div>
-            <div class="tool-card">
-              <span class="tool-name">// tech theatre</span>
-              <span class="tool-desc">Started this year at WFHS. Ran crew for Something Rotten! — my first full production. Lighting, tools, construction — I picked it up fast and kept going. Shoutout Mr. Domack for being a real one.</span>
-            </div>
-            <div class="tool-card">
-              <span class="tool-name">// leadership</span>
-              <span class="tool-desc">Good at reading a room and keeping a team moving. Whether it's a build session or a cue sequence, I stay focused and make sure things get done right.</span>
-            </div>
+            <div class="tool-card"><span class="tool-name">// who am i</span><span class="tool-desc">15 y/o developer &amp; tech theatre practitioner. Male. Anime enjoyer. I like working with my hands — building, cutting, making things real.</span></div>
+            <div class="tool-card"><span class="tool-name">// coding</span><span class="tool-desc">3 years of experience. Comfortable building web projects from scratch — HTML, CSS, JavaScript. I like making things that actually look good and work well, not just tutorials.</span></div>
+            <div class="tool-card"><span class="tool-name">// tech theatre</span><span class="tool-desc">Started this year at WFHS. Ran crew for Something Rotten! — my first full production. Lighting, tools, construction — I picked it up fast and kept going. Shoutout Mr. Domack for being a real one.</span></div>
+            <div class="tool-card"><span class="tool-name">// leadership</span><span class="tool-desc">Good at reading a room and keeping a team moving. Whether it's a build session or a cue sequence, I stay focused and make sure things get done right.</span></div>
           </div>
         </div>
 
@@ -260,7 +248,7 @@
             <div style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:130px;font-family:'Share Tech Mono',monospace;box-shadow:0 0 10px #00ff4110;">
               <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 8px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
               <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:10px 8px;">
-                     <img src="images/pfp/filledpfp.jpeg" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
+                <img src="images/pfp/filledpfp.jpeg" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
                 <span style="font-size:0.65rem;color:#e8e8e8;">Filled</span>
                 <a href="https://www.tiktok.com/@filledwithdeterminat?_r=1&_t=ZP-96nwQ0l7HyR" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
                   <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.58rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
@@ -335,7 +323,7 @@
           </div>
         </div>
 
-        <!-- Terminal input -->
+        <!-- Interactive terminal input -->
         <div class="term-divider" style="margin-top:1.4rem; opacity:0.5; font-size:0.7rem;">
           // type a command and press enter
         </div>
@@ -344,15 +332,16 @@
           <span id="typed-display"></span><span class="cursor">&#x2588;</span>
         </p>
         <p id="cmd-feedback" style="font-size:0.75rem; color:#00c83288; margin-top:0.3rem; min-height:1.1em;"></p>
+
       </div>
     </div>
   </div>
 
-  <!-- Theatre keypad -->
+  <!-- Keypad -->
   <div id="keypad-modal" aria-hidden="true">
     <div id="keypad-box">
       <div id="keypad-header">// ACCESS REQUIRED</div>
-      <div id="keypad-display"><span id="keypad-dots">&#x25CB;&#x25CB;&#x25CB;&#x25CB;</span></div>
+      <div id="keypad-display"><span id="keypad-dots">○○○○</span></div>
       <div id="keypad-status"></div>
       <div id="keypad-grid">
         <button class="kp-btn" data-val="1">1</button>
@@ -378,154 +367,16 @@
       <img src="images/media/image.png" alt="Rudo_" style="width:64px;height:64px;border-radius:50%;border:2px solid #00ff4155;object-fit:cover;display:block;" onerror="this.style.display='none'" />
       <span style="font-size:0.72rem;color:#00ff41cc;letter-spacing:0.05em;">Rudo_</span>
       <span style="font-size:0.58rem;color:#00ff4144;">// private profile</span>
-      <button id="ps-switch-btn" style="margin-top:4px;width:100%;font-family:'Share Tech Mono',monospace;font-size:0.68rem;background:#00ff4118;border:1px solid #00ff4166;color:#00ff41;border-radius:3px;padding:6px 0;cursor:pointer;letter-spacing:0.08em;">&#x21C4; SWITCH</button>
+      <button id="ps-switch-btn" style="margin-top:4px;width:100%;font-family:'Share Tech Mono',monospace;font-size:0.68rem;background:#00ff4118;border:1px solid #00ff4166;color:#00ff41;border-radius:3px;padding:6px 0;cursor:pointer;letter-spacing:0.08em;">⇄ SWITCH</button>
     </div>
   </div>
 
-  <!-- Profile Keypad (7171) -->
+  <!-- Profile Keypad (code: 7171) — hidden by default -->
   <div id="profile-keypad-modal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:9999;align-items:center;justify-content:center;">
     <div id="pkp-box" style="background:#050f05;border:1px solid #00ff4155;border-radius:6px;padding:1.2rem;width:200px;font-family:'Share Tech Mono',monospace;">
       <div style="font-size:0.75rem;color:#00ff41;text-align:center;margin-bottom:0.8rem;letter-spacing:0.1em;">// PRIVATE PROFILE</div>
-      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="pkp-dots">&#x25CB;&#x25CB;&#x25CB;&#x25CB;</div>
-      <div id="pkp-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
-        <button class="kp-btn" data-pkp="1">1</button>
-        <button class="kp-btn" data-pkp="2">2</button>
-        <button class="kp-btn" data-pkp="3">3</button>
-        <button class="kp-btn" data-pkp="4">4</button>
-        <button class="kp-btn" data-pkp="5">5</button>
-        <button class="kp-btn" data-pkp="6">6</button>
-        <button class="kp-btn" data-pkp="7">7</button>
-        <button class="kp-btn" data-pkp="8">8</button>
-        <button class="kp-btn" data-pkp="9">9</button>
-        <button class="kp-btn kp-clear" id="pkp-clear">CLR</button>
-        <button class="kp-btn" data-pkp="0">0</button>
-        <button class="kp-btn kp-enter" id="pkp-enter">ENT</button>
-      </div>
-    </div>
-  </div>
-
-  <script src="js/keypad.js"></script>
-  <script src="js/caym.js"></script>
-  <script src="js/nav.js"></script>
-  <script>
-    (function () {
-      const CODE = '7171';
-      const modal  = document.getElementById('profile-keypad-modal');
-      const dots   = document.getElementById('pkp-dots');
-      const status = document.getElementById('pkp-status');
-      const box    = document.getElementById('pkp-box');
-      let input = '';
-
-      function updateDots() {
-        dots.textContent = '●'.repeat(input.length) + '○'.repeat(Math.max(0, 4 - input.length));
-      }
-      function openModal()  { input = ''; updateDots(); status.textContent = ''; modal.style.display = 'flex'; }
-      function closeModal() { modal.style.display = 'none'; }
-
-      document.getElementById('ps-switch-btn').addEventListener('click', openModal);
-
-      modal.querySelectorAll('[data-pkp]').forEach(btn => {
-        btn.addEventListener('click', () => { if (input.length >= 4) return; input += btn.dataset.pkp; updateDots(); });
-      });
-
-      document.getElementById('pkp-clear').addEventListener('click', () => { input = ''; updateDots(); });
-
-      document.getElementById('pkp-enter').addEventListener('click', () => {
-        if (input === CODE) {
-          status.textContent = '// ACCESS GRANTED';
-          status.style.color = '#00ff41';
-          setTimeout(() => { window.location.href = 'secret.html'; }, 600);
-        } else {
-          status.textContent = '// ACCESS DENIED';
-          status.style.color = '#ff5f57';
-          input = ''; updateDots();
-        }
-      });
-
-      modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    })();
-  </script>
-</body>
-</html>
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 10px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 10px;">
-        <img src="images/pfp/snubbypfp.png" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
-        <span style="font-size:0.68rem;color:#60cfff;">Snubby</span>
-        <a href="https://snubby.top/" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
-          <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- RIGHT SIDE: FigureItOut, switcher, Rain -->
-  <div style="position:fixed;right:20px;top:50%;transform:translateY(-50%);z-index:100;display:flex;flex-direction:column;gap:8px;">
-
-    <div style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;font-family:'Share Tech Mono',monospace;box-shadow:0 0 10px #00ff4110;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 10px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 10px;">
-        <img src="images/pfp/figureitout pfp.jpg" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
-        <span style="font-size:0.68rem;color:#ff9500;">FigureItOut</span>
-        <a href="https://www.instagram.com/figureiutbroski?igsh=MXA0YnFvdmM4MnM0bQ==" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
-          <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
-        </a>
-      </div>
-    </div>
-
-    <div id="profile-switcher" style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;box-shadow:0 0 16px #00ff4115;font-family:'Share Tech Mono',monospace;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:5px 10px;font-size:0.55rem;color:#00ff4166;">// switch profile</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 10px;">
-        <img src="images/media/image.png" alt="Rudo_" style="width:52px;height:52px;border-radius:50%;border:2px solid #00ff4155;object-fit:cover;display:block;" onerror="this.style.display='none'" />
-        <span style="font-size:0.68rem;color:#00ff41cc;">Rudo_</span>
-        <span style="font-size:0.55rem;color:#00ff4144;">// private profile</span>
-        <button id="ps-switch-btn" style="margin-top:2px;width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4118;border:1px solid #00ff4166;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x21C4; SWITCH</button>
-      </div>
-    </div>
-
-    <div style="background:#050f05;border:1px solid #00ff4133;border-radius:6px;overflow:hidden;width:180px;font-family:'Share Tech Mono',monospace;box-shadow:0 0 10px #00ff4110;">
-      <div style="background:#0a0a0a;border-bottom:1px solid #00ff4122;padding:4px 10px;font-size:0.48rem;color:#00ff4166;">// check out my friend!</div>
-      <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 10px;">
-        <img src="images/pfp/rain.png" style="width:52px;height:52px;border-radius:50%;border:1px solid #00ff4155;object-fit:cover;" />
-        <span style="font-size:0.68rem;color:#60cfff;">Rain</span>
-        <a href="https://www.its-rain.ing/home" target="_blank" rel="noopener" style="width:100%;text-decoration:none;">
-          <button style="width:100%;font-family:'Share Tech Mono',monospace;font-size:0.6rem;background:#00ff4115;border:1px solid #00ff4155;color:#00ff41;border-radius:3px;padding:5px 0;cursor:pointer;">&#x2197; visit</button>
-        </a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- Theatre keypad -->
-  <div id="keypad-modal" aria-hidden="true">
-    <div id="keypad-box">
-      <div id="keypad-header">// ACCESS REQUIRED</div>
-      <div id="keypad-display"><span id="keypad-dots">&#x25CB;&#x25CB;&#x25CB;&#x25CB;</span></div>
-      <div id="keypad-status"></div>
-      <div id="keypad-grid">
-        <button class="kp-btn" data-val="1">1</button>
-        <button class="kp-btn" data-val="2">2</button>
-        <button class="kp-btn" data-val="3">3</button>
-        <button class="kp-btn" data-val="4">4</button>
-        <button class="kp-btn" data-val="5">5</button>
-        <button class="kp-btn" data-val="6">6</button>
-        <button class="kp-btn" data-val="7">7</button>
-        <button class="kp-btn" data-val="8">8</button>
-        <button class="kp-btn" data-val="9">9</button>
-        <button class="kp-btn kp-clear" id="kp-clear">CLR</button>
-        <button class="kp-btn" data-val="0">0</button>
-        <button class="kp-btn kp-enter" id="kp-enter">ENT</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Profile Keypad (7171) -->
-  <div id="profile-keypad-modal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:9999;align-items:center;justify-content:center;">
-    <div id="pkp-box" style="background:#050f05;border:1px solid #00ff4155;border-radius:6px;padding:1.2rem;width:200px;font-family:'Share Tech Mono',monospace;">
-      <div style="font-size:0.75rem;color:#00ff41;text-align:center;margin-bottom:0.8rem;letter-spacing:0.1em;">// PRIVATE PROFILE</div>
-      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="pkp-dots">&#x25CB;&#x25CB;&#x25CB;&#x25CB;</div>
-      <div id="pkp-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
+      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="pkp-dots">○○○○</div>
+           <div id="pkp-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
         <button class="kp-btn" data-pkp="1">1</button>
         <button class="kp-btn" data-pkp="2">2</button>
@@ -553,21 +404,16 @@
       const dots   = document.getElementById('pkp-dots');
       const status = document.getElementById('pkp-status');
       let input = '';
-
       function updateDots() {
         dots.textContent = '●'.repeat(input.length) + '○'.repeat(Math.max(0, 4 - input.length));
       }
       function openModal()  { input = ''; updateDots(); status.textContent = ''; modal.style.display = 'flex'; }
       function closeModal() { modal.style.display = 'none'; }
-
       document.getElementById('ps-switch-btn').addEventListener('click', openModal);
-
       modal.querySelectorAll('[data-pkp]').forEach(btn => {
         btn.addEventListener('click', () => { if (input.length >= 4) return; input += btn.dataset.pkp; updateDots(); });
       });
-
       document.getElementById('pkp-clear').addEventListener('click', () => { input = ''; updateDots(); });
-
       document.getElementById('pkp-enter').addEventListener('click', () => {
         if (input === CODE) {
           status.textContent = '// ACCESS GRANTED';
@@ -579,13 +425,7 @@
           input = ''; updateDots();
         }
       });
-
       modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
-    })();
-  </script>
-</body>
-</html>
-ner('click', e => { if (e.target === modal) closeModal(); });
     })();
   </script>
 </body>
