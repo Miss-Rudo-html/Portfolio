@@ -559,8 +559,10 @@ body {
 }
 
 .timeline-step img {
-  width: 100%;
-  max-width: 420px;
+  width: auto;
+  max-width: 260px;
+  max-height: 180px;
+  object-fit: cover;
   border-radius: 4px;
   border: 1px solid #00ff4122;
   opacity: 0.9;
