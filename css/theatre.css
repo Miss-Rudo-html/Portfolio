@@ -508,6 +508,65 @@ body {
   line-height: 1.5;
 }
 
+/* ── Progress timeline ── */
+.progress-timeline {
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  position: relative;
+}
+
+.progress-timeline::before {
+  content: '';
+  position: absolute;
+  left: 15px;
+  top: 8px;
+  bottom: 24px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--green-dim), #00ff4111);
+}
+
+.timeline-step {
+  display: flex;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  position: relative;
+}
+
+.timeline-marker {
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--green-dim);
+  border-radius: 50%;
+  background: #0d0d0d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.6rem;
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  z-index: 1;
+  text-shadow: 0 0 4px var(--green);
+}
+
+.timeline-label {
+  font-size: 0.75rem;
+  color: var(--green);
+  font-family: 'Share Tech Mono', monospace;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 4px var(--green);
+}
+
+.timeline-step img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 4px;
+  border: 1px solid #00ff4122;
+  opacity: 0.9;
+  cursor: pointer;
+}
+
 /* ── Shadow photo grid ── */
 .shadow-grid {
   display: grid;
