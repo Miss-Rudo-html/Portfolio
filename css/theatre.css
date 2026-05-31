@@ -758,3 +758,28 @@ body {
   color: #00ff4166;
   font-family: 'Share Tech Mono', monospace;
 }
+
+/* ── Reflection paper ── */
+.reflection-paper {
+  background: #111;
+  border: 1px solid #00ff4122;
+  border-radius: 4px;
+  padding: 1.6rem 1.8rem;
+  margin-bottom: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.reflection-paper p {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.76rem;
+  color: #c8c8c8;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.rp-bold {
+  color: var(--green);
+  font-style: normal;
+}
