@@ -20,6 +20,8 @@ html, body {
   font-family: 'Share Tech Mono', monospace;
   color: var(--green);
   overflow: hidden;
+  padding: 0 210px;
+  box-sizing: border-box;
 }
 
 /* CRT scanline overlay */
@@ -627,58 +629,7 @@ html, body {
 .hidden { display: none; }
 
 /* ── Profile Switcher ── */
-#profile-switcher {
-  position: fixed;
-  right: calc((100vw - min(860px, 96vw)) / 2 - 110px);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 100;
-  background: #050f05;
-  border: 1px solid #00ff4133;
-  border-radius: 6px;
-  padding: 0.8rem 0.7rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  width: 80px;
-  box-shadow: 0 0 12px #00ff4110;
-  opacity: 0.85;
-  transition: opacity 0.2s, border-color 0.2s;
-}
-#profile-switcher:hover { opacity: 1; border-color: #00ff4166; }
-#profile-switcher img {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: 1px solid #00ff4155;
-  object-fit: cover;
-}
-#profile-switcher .ps-label {
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.6rem;
-  color: var(--green-dim);
-  text-align: center;
-}
-#profile-switcher .ps-hint {
-  font-size: 0.5rem;
-  color: #00ff4144;
-  text-align: center;
-}
-#profile-switcher .ps-btn {
-  margin-top: 0.2rem;
-  font-family: 'Share Tech Mono', monospace;
-  font-size: 0.55rem;
-  background: #00ff4115;
-  border: 1px solid #00ff4144;
-  color: var(--green);
-  border-radius: 3px;
-  padding: 0.2rem 0.4rem;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-  transition: background 0.15s;
-}
+/* profile-switcher now controlled entirely by inline styles */
 #profile-switcher .ps-btn:hover { background: #00ff4128; }
 
 /* ── Profile Keypad (7171) ── */
