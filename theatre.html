@@ -10,30 +10,6 @@
 <body>
   <div id="scanline"></div>
 
-  <!-- Keypad modal -->
-  <div id="keypad-modal" aria-hidden="true">
-    <div id="keypad-box">
-      <div id="keypad-header">// ACCESS REQUIRED</div>
-      <div class="kp-unfinished-warning">THIS IS AN UNFINISHED FEATURE SO UNTILL IT IS FINISHED IT WILL REMAIN LOCKED</div>
-      <div id="keypad-display"><span id="keypad-dots">&#x25CF;&#x25CF;&#x25CF;&#x25CF;</span></div>
-      <div id="keypad-status"></div>
-      <div id="keypad-grid">
-        <button class="kp-btn" data-val="1">1</button>
-        <button class="kp-btn" data-val="2">2</button>
-        <button class="kp-btn" data-val="3">3</button>
-        <button class="kp-btn" data-val="4">4</button>
-        <button class="kp-btn" data-val="5">5</button>
-        <button class="kp-btn" data-val="6">6</button>
-        <button class="kp-btn" data-val="7">7</button>
-        <button class="kp-btn" data-val="8">8</button>
-        <button class="kp-btn" data-val="9">9</button>
-        <button class="kp-btn kp-clear" id="kp-clear">CLR</button>
-        <button class="kp-btn" data-val="0">0</button>
-        <button class="kp-btn kp-enter" id="kp-enter">ENT</button>
-      </div>
-    </div>
-  </div>
-
   <!-- Lightbox -->
   <div id="lightbox" aria-hidden="true">
     <button id="lb-close">&#x2715;</button>
@@ -194,10 +170,10 @@
               </div>
             </div>
 
-            <div class="assign-item keypad-locked" id="prompt-book-trigger">
+            <div class="assign-item expandable" data-target="prompt-book-details" id="prompt-book-trigger">
               <span class="assign-type assignment">assignment</span>
               <span class="assign-name">Prompt Book</span>
-              <span class="lock-icon">&#x1F512;</span>
+              <span class="expand-arrow">&#x25BE;</span>
             </div>
             <div class="assign-details" id="prompt-book-details">
               <p class="detail-reflection">
