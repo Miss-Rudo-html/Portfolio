@@ -197,6 +197,34 @@ html, body {
   display: block;
 }
 
+#banner-quick-btns {
+  position: absolute;
+  bottom: 0.7rem;
+  left: 0.7rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  z-index: 2;
+}
+
+.banner-quick-btn {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.62rem;
+  color: #00ff41;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #00ff4155;
+  border-radius: 3px;
+  padding: 4px 10px;
+  text-decoration: none;
+  backdrop-filter: blur(4px);
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.banner-quick-btn:hover {
+  background: rgba(0,255,65,0.12);
+  border-color: #00ff41;
+}
+
 #banner-overlay {
   position: absolute;
   inset: 0;
