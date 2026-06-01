@@ -16,6 +16,8 @@
       color: #00ff41;
       font-family: 'Share Tech Mono', monospace;
       min-height: 100vh;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     #scanline {
@@ -71,8 +73,11 @@
     /* GIF grid */
     #gif-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 1rem;
+    }
+    @media (max-width: 480px) {
+      #gif-grid { grid-template-columns: 1fr 1fr; }
     }
 
     .gif-card {

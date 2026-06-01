@@ -17,6 +17,8 @@
       font-family: 'Share Tech Mono', monospace;
       min-height: 100vh;
       padding: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     #scanline {
@@ -98,8 +100,11 @@
     /* Anime grid */
     #anime-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 1rem;
+    }
+    @media (max-width: 480px) {
+      #anime-grid { grid-template-columns: 1fr 1fr; }
     }
 
     .anime-card {
