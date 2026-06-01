@@ -1,3 +1,28 @@
+// ── Scroll reveal animations ──
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (!entry.isIntersecting) return;
+    const el = entry.target;
+    el.classList.add('visible');
+
+    // Stagger learnings list items
+    el.querySelectorAll('.learnings li').forEach((li, i) => {
+      li.style.transitionDelay = `${0.15 + i * 0.1}s`;
+      li.classList.add('visible');
+    });
+
+    // Stagger timeline steps
+    el.querySelectorAll('.timeline-step').forEach((step, i) => {
+      step.style.transitionDelay = `${0.1 + i * 0.12}s`;
+      step.classList.add('visible');
+    });
+
+    revealObserver.unobserve(el);
+  });
+}, { root: document.getElementById('scroll-area'), threshold: 0.06 });
+
+document.querySelectorAll('.theatre-section').forEach(s => revealObserver.observe(s));
+
 // ── Sidebar active link on scroll ──
 const sections   = document.querySelectorAll('.theatre-section');
 const navLinks   = document.querySelectorAll('.nav-link');

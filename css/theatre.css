@@ -816,3 +816,74 @@ body {
   text-shadow: 0 2px 20px #000a;
   pointer-events: none;
 }
+
+/* ── Animations ── */
+
+/* Section scroll reveal */
+.theatre-section {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.theatre-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Learnings stagger */
+.learnings li {
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.learnings li.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Timeline step cascade */
+.timeline-step {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.timeline-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Banner title glow pulse + glitch */
+@keyframes banner-glow {
+  0%, 100% { text-shadow: 0 2px 20px #000a; }
+  50%       { text-shadow: 0 0 30px rgba(255,255,255,0.35), 0 2px 20px #000a; }
+}
+@keyframes banner-glitch {
+  0%, 88%, 100% { opacity: 1; transform: none; }
+  90%  { opacity: 0.85; transform: skew(-1.5deg) translateX(3px); }
+  92%  { opacity: 1;    transform: skew(0.8deg)  translateX(-2px); }
+  94%  { opacity: 0.9;  transform: none; }
+}
+#theatre-banner-title {
+  animation:
+    banner-glow   5s ease-in-out infinite,
+    banner-glitch 9s steps(1) infinite;
+}
+
+/* Section label count-up feel */
+.section-label {
+  opacity: 0;
+  transition: opacity 0.4s ease 0.15s;
+}
+.theatre-section.visible .section-label {
+  opacity: 1;
+}
+
+/* Section title underline slide */
+.section-divider {
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s ease 0.2s;
+}
+.theatre-section.visible .section-divider {
+  transform: scaleX(1);
+}
