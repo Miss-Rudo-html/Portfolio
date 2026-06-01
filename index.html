@@ -83,8 +83,8 @@
           <img src="images/media/chainsaw-man-aki.gif" alt="banner" id="banner-gif" />
           <div id="banner-overlay"></div>
           <div id="banner-quick-btns">
-            <a href="anime.html" class="banner-quick-btn">&#x25B6; Anime Recs</a>
-            <a href="gif.html"   class="banner-quick-btn">&#x2665; GIF Library</a>
+            <button class="banner-quick-btn" onclick="openFeatureLock('anime.html')">&#x1F512; Anime Recs</button>
+            <button class="banner-quick-btn" onclick="openFeatureLock('gif.html')">&#x1F512; GIF Library</button>
           </div>
         </div>
 
@@ -451,10 +451,35 @@
     </div>
   </div>
 
+  <!-- Feature lock modal (anime / gif) -->
+  <div id="feature-lock-modal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:9999;align-items:center;justify-content:center;">
+    <div style="background:#050f05;border:1px solid #00ff4155;border-radius:6px;padding:1.4rem;width:240px;font-family:'Share Tech Mono',monospace;">
+      <div style="font-size:0.75rem;color:#00ff41;text-align:center;margin-bottom:0.8rem;letter-spacing:0.1em;">// ACCESS REQUIRED</div>
+      <div class="kp-unfinished-warning">THIS IS AN UNFINISHED FEATURE SO UNTILL IT IS FINISHED IT WILL REMAIN LOCKED</div>
+      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="flk-dots">&#x25CB;&#x25CB;&#x25CB;&#x25CB;</div>
+      <div id="flk-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
+        <button class="kp-btn" data-flk="1">1</button>
+        <button class="kp-btn" data-flk="2">2</button>
+        <button class="kp-btn" data-flk="3">3</button>
+        <button class="kp-btn" data-flk="4">4</button>
+        <button class="kp-btn" data-flk="5">5</button>
+        <button class="kp-btn" data-flk="6">6</button>
+        <button class="kp-btn" data-flk="7">7</button>
+        <button class="kp-btn" data-flk="8">8</button>
+        <button class="kp-btn" data-flk="9">9</button>
+        <button class="kp-btn" id="flk-clear">CLR</button>
+        <button class="kp-btn" data-flk="0">0</button>
+        <button class="kp-btn kp-enter" id="flk-enter">ENT</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Keypad -->
   <div id="keypad-modal" aria-hidden="true">
     <div id="keypad-box">
       <div id="keypad-header">// ACCESS REQUIRED</div>
+      <div class="kp-unfinished-warning">THIS IS AN UNFINISHED FEATURE SO UNTILL IT IS FINISHED IT WILL REMAIN LOCKED</div>
       <div id="keypad-display"><span id="keypad-dots">○○○○</span></div>
       <div id="keypad-status"></div>
       <div id="keypad-grid">
@@ -478,6 +503,7 @@
   <div id="profile-keypad-modal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:9999;align-items:center;justify-content:center;">
     <div id="pkp-box" style="background:#050f05;border:1px solid #00ff4155;border-radius:6px;padding:1.2rem;width:200px;font-family:'Share Tech Mono',monospace;">
       <div style="font-size:0.75rem;color:#00ff41;text-align:center;margin-bottom:0.8rem;letter-spacing:0.1em;">// PRIVATE PROFILE</div>
+      <div class="kp-unfinished-warning">THIS IS AN UNFINISHED FEATURE SO UNTILL IT IS FINISHED IT WILL REMAIN LOCKED</div>
       <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="pkp-dots">&#x25CB;&#x25CB;&#x25CB;&#x25CB;</div>
       <div id="pkp-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
@@ -595,6 +621,62 @@
       });
       modal.addEventListener('click', e => { if (e.target === modal) closeModal(); });
     })();
+  </script>
+  <script>
+    // Feature lock modal (anime / gif)
+    const flkModal  = document.getElementById('feature-lock-modal');
+    const flkDots   = document.getElementById('flk-dots');
+    const flkStatus = document.getElementById('flk-status');
+    const FLK_CODE  = '9898';
+    let   flkInput  = '';
+    let   flkTarget = '';
+
+    function openFeatureLock(dest) {
+      flkTarget = dest;
+      flkInput  = '';
+      updateFlkDots();
+      flkStatus.textContent = '';
+      flkModal.style.display = 'flex';
+    }
+
+    function updateFlkDots() {
+      flkDots.textContent = '●'.repeat(flkInput.length) + '○'.repeat(Math.max(0, 4 - flkInput.length));
+    }
+
+    document.querySelectorAll('[data-flk]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (flkInput.length >= 4) return;
+        flkInput += btn.dataset.flk;
+        updateFlkDots();
+        flkStatus.textContent = '';
+      });
+    });
+
+    document.getElementById('flk-clear').addEventListener('click', () => {
+      flkInput = '';
+      updateFlkDots();
+      flkStatus.textContent = '';
+    });
+
+    document.getElementById('flk-enter').addEventListener('click', () => {
+      if (flkInput === FLK_CODE) {
+        flkStatus.textContent = '// ACCESS GRANTED';
+        flkStatus.style.color = '#00ff41';
+        setTimeout(() => {
+          flkModal.style.display = 'none';
+          location.href = flkTarget;
+        }, 500);
+      } else {
+        flkStatus.textContent = '// ACCESS DENIED';
+        flkStatus.style.color = '#ff5f57';
+        flkInput = '';
+        updateFlkDots();
+      }
+    });
+
+    flkModal.addEventListener('click', e => {
+      if (e.target === flkModal) flkModal.style.display = 'none';
+    });
   </script>
 </body>
 </html>
