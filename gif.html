@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Caym · GIF Library</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a0a0a;
+      color: #00ff41;
+      font-family: 'Share Tech Mono', monospace;
+      min-height: 100vh;
+    }
+
+    #scanline {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(to bottom, transparent 0px, transparent 3px, rgba(0,0,0,0.08) 3px, rgba(0,0,0,0.08) 4px);
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    #topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: #0a0a0a;
+      border-bottom: 1px solid #00ff4122;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 1.2rem;
+      height: 40px;
+    }
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot.red    { background: #ff5f57; }
+    .dot.yellow { background: #febc2e; }
+    .dot.green-dot { background: #28c840; }
+    #topbar-title { flex: 1; font-size: 0.72rem; color: #00ff4177; }
+    .back-btn {
+      font-size: 0.7rem;
+      color: #00ff41;
+      text-decoration: none;
+      border: 1px solid #00ff4133;
+      padding: 2px 10px;
+      border-radius: 3px;
+    }
+    .back-btn:hover { border-color: #00ff41; background: #00ff410a; }
+
+    #page-body {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 2rem 1.2rem 3rem;
+    }
+
+    .page-header { margin-bottom: 1.8rem; }
+    .page-label { font-size: 0.65rem; color: #00ff4155; margin-bottom: 0.3rem; }
+    .page-title { font-size: 1.6rem; letter-spacing: 0.1em; color: #00ff41; }
+    .page-divider {
+      height: 1px;
+      background: linear-gradient(to right, #00ff4155, transparent);
+      margin-top: 0.6rem;
+    }
+
+    /* GIF grid */
+    #gif-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .gif-card {
+      border: 1px solid #00ff4122;
+      border-radius: 6px;
+      overflow: hidden;
+      background: #111;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .gif-card:hover {
+      border-color: #00ff4155;
+      transform: translateY(-3px);
+    }
+
+    .gif-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+      background: #1a1a1a;
+    }
+    .gif-placeholder {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #1a1a1a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.6rem;
+      color: #00ff4133;
+    }
+
+    .gif-info {
+      padding: 0.6rem 0.7rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+      flex: 1;
+    }
+
+    .gif-caption {
+      font-size: 0.7rem;
+      color: #c8c8c8;
+      line-height: 1.4;
+    }
+
+    .copy-btn {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.62rem;
+      background: #00ff4111;
+      border: 1px solid #00ff4133;
+      color: #00ff41;
+      padding: 4px 0;
+      border-radius: 3px;
+      cursor: pointer;
+      width: 100%;
+      transition: background 0.15s, border-color 0.15s;
+      margin-top: auto;
+    }
+    .copy-btn:hover { background: #00ff4122; border-color: #00ff41; }
+    .copy-btn.copied { color: #28c840; border-color: #28c840; }
+
+    /* Toast */
+    #toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #111;
+      border: 1px solid #00ff4155;
+      color: #00ff41;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      padding: 8px 20px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.2s, transform 0.2s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    #toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+  </style>
+</head>
+<body>
+  <div id="scanline"></div>
+  <div id="toast">// link copied</div>
+
+  <div id="topbar">
+    <span class="dot red"></span>
+    <span class="dot yellow"></span>
+    <span class="dot green-dot"></span>
+    <span id="topbar-title">caym@portfolio:~/gif-library</span>
+    <a href="index.html" class="back-btn">cd ..</a>
+  </div>
+
+  <div id="page-body">
+    <div class="page-header">
+      <div class="page-label">// saved forever</div>
+      <h1 class="page-title">FAV GIF LIBRARY</h1>
+      <div class="page-divider"></div>
+    </div>
+
+    <div id="gif-grid">
+
+      <!-- Placeholder card 1 -->
+      <div class="gif-card">
+        <div class="gif-placeholder">[ gif ]</div>
+        <div class="gif-info">
+          <span class="gif-caption">Placeholder — add your GIF here</span>
+          <button class="copy-btn" data-link="#">&#x29C9; Copy Link</button>
+        </div>
+      </div>
+
+      <!-- Placeholder card 2 -->
+      <div class="gif-card">
+        <div class="gif-placeholder">[ gif ]</div>
+        <div class="gif-info">
+          <span class="gif-caption">Placeholder — add your GIF here</span>
+          <button class="copy-btn" data-link="#">&#x29C9; Copy Link</button>
+        </div>
+      </div>
+
+      <!-- Placeholder card 3 -->
+      <div class="gif-card">
+        <div class="gif-placeholder">[ gif ]</div>
+        <div class="gif-info">
+          <span class="gif-caption">Placeholder — add your GIF here</span>
+          <button class="copy-btn" data-link="#">&#x29C9; Copy Link</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const toast = document.getElementById('toast');
+
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const link = btn.dataset.link;
+        navigator.clipboard.writeText(link).then(() => {
+          btn.textContent = '✓ Copied!';
+          btn.classList.add('copied');
+          toast.classList.add('show');
+          setTimeout(() => {
+            btn.textContent = '⦉ Copy Link';
+            btn.classList.remove('copied');
+            toast.classList.remove('show');
+          }, 2000);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
