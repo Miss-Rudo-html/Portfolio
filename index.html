@@ -15,9 +15,10 @@
       <span class="dot green-dot"></span>
       <span id="terminal-title">caym@portfolio:~</span>
       <div id="version-wrap">
-        <button id="version-btn">v2.1.0</button>
+        <button id="version-btn">v2.2.0</button>
         <div id="changelog">
           <div class="cl-header">// CHANGELOG</div>
+          <div class="cl-entry"><span class="cl-tag">new</span> Trusted Person System — VHS face censors, name redaction, 6-digit unlock</div>
           <div class="cl-entry"><span class="cl-tag">new</span> Dual profile system — Caym &amp; Rudo_</div>
           <div class="cl-entry"><span class="cl-tag">new</span> Terminal boot animation</div>
           <div class="cl-entry"><span class="cl-tag">new</span> Alias dropdown on name hover</div>
@@ -122,10 +123,16 @@
             <span class="card-title">ABOUT ME</span>
           </div>
           <div style="display:flex;flex-direction:column;gap:0.5rem;">
-            <div class="tool-card"><span class="tool-name">// who am i</span><span class="tool-desc">15 y/o developer &amp; tech theater practitioner. Male. Anime enjoyer. I like working with my hands — building, cutting, making things real.</span></div>
+            <div class="tool-card"><span class="tool-name">// who am i</span><span class="tool-desc">My name is <span data-tps-name class="tps-inline-name">Cameron Schmidt</span>. 15 y/o developer &amp; tech theater practitioner. Male. Anime enjoyer. I like working with my hands — building, cutting, making things real.</span></div>
             <div class="tool-card"><span class="tool-name">// coding</span><span class="tool-desc">3 years of experience. Comfortable building web projects from scratch — HTML, CSS, JavaScript. I like making things that actually look good and work well, not just tutorials.</span></div>
-            <div class="tool-card"><span class="tool-name">// tech theater</span><span class="tool-desc">Started this year at WFHS. Ran crew for Something Rotten! — my first full production. Lighting, tools, construction — I picked it up fast and kept going. Shoutout Mr. Domack for being a real one.</span></div>
+            <div class="tool-card"><span class="tool-name">// tech theater</span><span class="tool-desc">Started this year at WFHS. Ran crew for Something Rotten! — my first full production. Lighting, tools, construction — I picked it up fast and kept going. Shoutout <span data-tps-name class="tps-inline-name">Mr. Domack</span> for being a real one.</span></div>
             <div class="tool-card"><span class="tool-name">// leadership</span><span class="tool-desc">Good at reading a room and keeping a team moving. Whether it's a build session or a cue sequence, I stay focused and make sure things get done right.</span></div>
+          </div>
+          <div style="margin-top:0.9rem;display:flex;flex-direction:column;align-items:center;gap:0.4rem;">
+            <div data-tps-face="full" style="position:relative;overflow:hidden;border-radius:4px;width:160px;border:1px solid #00ff4133;">
+              <img src="images/shadows/thisisme.png" style="width:100%;display:block;" />
+            </div>
+            <span style="font-size:0.65rem;color:#00ff4188;font-family:'Share Tech Mono',monospace;letter-spacing:0.05em;">^^^ [ ME :D ] ^^^</span>
           </div>
         </div>
 
@@ -185,7 +192,7 @@
             </div>
           </div>
 
-          <!-- Technical Theatre -->
+          <!-- Tech Theater -->
           <div class="section-card" id="card-theatre" tabindex="0" role="button">
             <div class="card-header">
               <span class="card-icon">&#x2605;</span>
@@ -277,10 +284,10 @@
             <span class="friend pink">Conu</span>
             <span class="friend pink">urboydani_</span>
             <span class="friend pink">star_b0rn</span>
-            <span class="friend red">Timothy Domack</span>
+            <span class="friend red" data-tps-name>Timothy Domack</span>
             <span class="friend orange">Isa</span>
-            <span class="friend red">Mrs. Munroe</span>
-            <span class="friend red">Christopher Butts</span>
+            <span class="friend red" data-tps-name>Mrs. Munroe</span>
+            <span class="friend red" data-tps-name>Christopher Butts</span>
             <span class="friend orange">Aden</span>
             <span class="friend orange">?avns</span>
             <span class="friend orange">FigureItOut</span>
@@ -348,6 +355,45 @@
               </div>
             </div>
 
+          </div>
+        </div>
+
+        <!-- Family -->
+        <div class="term-divider" style="margin-top:1.4rem;">
+          <span class="prompt-sym">visitor@portfolio:~$</span>
+          <span class="cmd"> cat family.txt</span>
+        </div>
+        <div id="family-card" class="section-card full-width">
+          <div class="card-header">
+            <span class="card-icon">&#x2665;</span>
+            <span class="card-title">FAMILY</span>
+          </div>
+          <div id="friends-grid" style="margin-top:0.4rem;">
+            <span class="friend gold" data-tps-name>Stacey Schmidt</span>
+            <span class="friend gold" data-tps-name>Jay Schmidt</span>
+            <span class="friend gold" data-tps-name>Sydney Schmidt</span>
+            <span class="friend gold" data-tps-name>Mark Schmidt</span>
+            <span class="friend gold" data-tps-name>Lois Schmidt</span>
+            <span class="friend gold" data-tps-name>Katie Schmidt</span>
+            <span class="friend orange" data-tps-name>Pete</span>
+            <span class="friend orange" data-tps-name>Gail</span>
+            <span class="friend white" data-tps-name>Jean Squires</span>
+            <span class="friend white" data-tps-name>Shawn Squires</span>
+            <span class="friend white" data-tps-name>Pauline Harney</span>
+          </div>
+          <div style="margin-top:1rem;padding-top:0.8rem;border-top:1px solid #00ff4111;">
+            <div style="font-size:0.6rem;color:#00ff4166;font-family:'Share Tech Mono',monospace;letter-spacing:0.1em;margin-bottom:0.5rem;">// pets</div>
+            <div id="friends-grid">
+              <span class="friend green">Maggie</span>
+              <span class="friend green">Murphey</span>
+              <span class="friend green">Ziggy</span>
+              <span class="friend green">Zoe</span>
+              <span class="friend green">Kyro</span>
+              <span class="friend green">Sun Flower</span>
+              <span class="friend green">Greeny</span>
+              <span class="friend blue">Purple Fish</span>
+              <span class="friend blue">The Guppies</span>
+            </div>
           </div>
         </div>
 
@@ -419,14 +465,12 @@
     </div>
   </div>
 
-  <!-- Profile Switcher (banner pfp) — injected into banner via JS below -->
-
-  <!-- Profile Keypad (code: 7171) — hidden by default -->
+  <!-- Profile Keypad (code: 7171) -->
   <div id="profile-keypad-modal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:9999;align-items:center;justify-content:center;">
     <div id="pkp-box" style="background:#050f05;border:1px solid #00ff4155;border-radius:6px;padding:1.2rem;width:200px;font-family:'Share Tech Mono',monospace;">
       <div style="font-size:0.75rem;color:#00ff41;text-align:center;margin-bottom:0.8rem;letter-spacing:0.1em;">// PRIVATE PROFILE</div>
-      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="pkp-dots">○○○○</div>
-           <div id="pkp-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
+      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="pkp-dots">&#x25CB;&#x25CB;&#x25CB;&#x25CB;</div>
+      <div id="pkp-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
         <button class="kp-btn" data-pkp="1">1</button>
         <button class="kp-btn" data-pkp="2">2</button>
@@ -448,7 +492,7 @@
   <div id="sme-keypad-modal" style="display:none;position:fixed;inset:0;background:#000000cc;z-index:9999;align-items:center;justify-content:center;">
     <div id="skp-box" style="background:#050f05;border:1px solid #00ff4155;border-radius:6px;padding:1.2rem;width:200px;font-family:'Share Tech Mono',monospace;">
       <div style="font-size:0.75rem;color:#00ff41;text-align:center;margin-bottom:0.8rem;letter-spacing:0.1em;">// SME - EAGLER</div>
-      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="skp-dots">○○○○</div>
+      <div style="text-align:center;font-size:1.2rem;color:#00ff41;letter-spacing:0.3em;margin-bottom:0.8rem;" id="skp-dots">&#x25CB;&#x25CB;&#x25CB;&#x25CB;</div>
       <div id="skp-status" style="text-align:center;font-size:0.6rem;min-height:1em;margin-bottom:0.6rem;"></div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;">
         <button class="kp-btn" data-skp="1">1</button>
@@ -467,6 +511,7 @@
     </div>
   </div>
 
+  <script src="js/tps.js"></script>
   <script src="js/keypad.js"></script>
   <script src="js/caym.js"></script>
   <script src="js/nav.js"></script>
@@ -504,7 +549,6 @@
   </script>
   <script>
     (function () {
-      // Inject pfp switcher button onto the banner
       const banner = document.getElementById('profile-banner');
       const btn = document.createElement('button');
       btn.title = 'Switch to Rudo_';
